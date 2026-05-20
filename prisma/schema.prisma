@@ -1,0 +1,1183 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// =====================================================
+// ENUMS
+// =====================================================
+
+enum UserRole {
+  USER
+  EDITOR
+  ADMIN
+}
+
+enum WorkType {
+  ANIME
+  MANGA
+  MANHUA
+  MANHWA
+  DONGHUA
+  NOVEL
+  WEB_NOVEL
+  LIGHT_NOVEL
+  GAME
+  OTHER
+}
+
+enum WorkStatus {
+  UPCOMING
+  ONGOING
+  COMPLETED
+  HIATUS
+  CANCELLED
+  UNKNOWN
+}
+
+enum PublishStatus {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
+enum WikiRevisionStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+enum WikiRevisionTargetType {
+  WIKI_PAGE
+  WIKI_SECTION
+}
+
+enum SpoilerLevel {
+  NONE
+  LIGHT
+  MEDIUM
+  HEAVY
+  FULL
+}
+
+enum WikiPageType {
+  WORK_REVIEW
+  CHARACTER_PROFILE
+  ARTIFACT_PROFILE
+  SKILL_PROFILE
+  FACTION_PROFILE
+  TERM_EXPLAINER
+  STORY_SUMMARY
+  WORLD_BUILDING
+  POWER_SYSTEM
+  RECOMMENDATION
+  NEWS
+  ANALYSIS
+  GUIDE
+}
+
+enum WikiSectionType {
+  NORMAL
+  OVERVIEW
+
+  // Review truyện / tác phẩm
+  BASIC_INFO
+  PLOT_SUMMARY
+  CHARACTER_LIST
+  WORLD_SETTING
+  POWER_SYSTEM
+  REVIEW_OPINION
+  ACHIEVEMENT
+  RELATED_WORKS
+
+  // Profile nhân vật
+  BACKGROUND
+  APPEARANCE
+  PERSONALITY
+  RELATIONSHIP
+  LIFE_STORY
+  SKILL_LIST
+
+  // Bảo vật / pháp bảo / vật phẩm
+  ARTIFACT_ORIGIN
+  ARTIFACT_HISTORY
+  ARTIFACT_FUNCTIONS
+  ARTIFACT_OWNERS
+  ARTIFACT_ROLE_IN_STORY
+  ARTIFACT_COMPARISON
+
+  // Chung
+  IMAGE_GALLERY
+  SOURCE_LIST
+}
+
+enum CharacterWorkRole {
+  MAIN
+  SUPPORTING
+  VILLAIN
+  CAMEO
+  UNKNOWN
+}
+
+enum CharacterRelationType {
+  RELATED
+  FRIEND_OF
+  ENEMY_OF
+  RIVAL_OF
+  ALLY_OF
+  FAMILY_OF
+  PARENT_OF
+  CHILD_OF
+  SIBLING_OF
+  SPOUSE_OF
+  LOVE_INTEREST_OF
+  MASTER_OF
+  DISCIPLE_OF
+  SAME_PERSON_AS
+}
+
+enum ArtifactType {
+  TREASURE
+  MAGIC_WEAPON
+  DIVINE_WEAPON
+  SWORD
+  SPEAR
+  BOW
+  ARMOR
+  PILL
+  TALISMAN
+  FORMATION
+  BOOK
+  BEAD
+  CAULDRON
+  BOTTLE
+  RING
+  SEAL
+  TOKEN
+  SPIRIT_BEAST
+  MATERIAL
+  OTHER
+}
+
+enum ArtifactFunctionType {
+  TIME_ACCELERATION
+  CULTIVATION_SUPPORT
+  HEALING
+  RESURRECTION
+  SEALING
+  STORAGE_SPACE
+  WORLD_CONTROL
+  ATTACK
+  DEFENSE
+  ESCAPE
+  SOUL_PROTECTION
+  DESTINY_CAUSALITY
+  SUMMONING
+  REFINING
+  OTHER
+}
+
+enum ArtifactOwnershipType {
+  CREATOR
+  ORIGINAL_OWNER
+  OWNER
+  TEMPORARY_HOLDER
+  INHERITOR
+  STEALER
+  GUARDIAN
+  DESTROYER
+  RELATED_PERSON
+}
+
+enum SkillType {
+  MARTIAL_ART
+  MAGIC
+  CURSED_TECHNIQUE
+  QI_TECHNIQUE
+  CULTIVATION_METHOD
+  BLOODLINE
+  WEAPON_TECHNIQUE
+  SPECIAL_ABILITY
+  FORMATION
+  ALCHEMY
+  OTHER
+}
+
+enum FactionType {
+  SECT
+  CLAN
+  FAMILY
+  ORGANIZATION
+  SCHOOL
+  KINGDOM
+  EMPIRE
+  GUILD
+  COMPANY
+  ALLIANCE
+  OTHER
+}
+
+enum TermType {
+  REALM
+  POWER_SYSTEM
+  ORGANIZATION_CONCEPT
+  RACE
+  ITEM_CLASS
+  LOCATION_TYPE
+  CONCEPT
+  TECHNIQUE_CLASS
+  OTHER
+}
+
+enum MediaType {
+  IMAGE
+  VIDEO
+  AUDIO
+  DOCUMENT
+  OTHER
+}
+
+enum NotificationType {
+  COMMENT_REPLY
+  COMMENT_ON_PAGE
+  PAGE_PUBLISHED
+  PAGE_UPDATED
+  MENTION
+  SYSTEM
+}
+
+enum EntityType {
+  WORK
+  CHARACTER
+  ARTIFACT
+  SKILL
+  FACTION
+  TERM
+  WIKI_PAGE
+  COMMENT
+}
+
+enum EntityRelationType {
+  RELATED
+  SIMILAR_TO
+  PART_OF
+  SEQUEL_OF
+  PREQUEL_OF
+  SPIN_OFF_OF
+  ADAPTATION_OF
+  APPEARS_IN
+  USES_SKILL
+  OWNS_ARTIFACT
+  MEMBER_OF
+  ENEMY_OF
+  FRIEND_OF
+  FAMILY_OF
+  MASTER_OF
+  DISCIPLE_OF
+  CREATED_BY
+  DESTROYED_BY
+  LOCATED_IN
+  COMPARED_WITH
+}
+
+// =====================================================
+// USERS
+// =====================================================
+
+model User {
+  id           String   @id @default(uuid()) @db.Uuid
+  email        String   @unique
+  passwordHash String?  @map("password_hash")
+  displayName  String?  @map("display_name")
+  avatarUrl    String?  @map("avatar_url")
+  role         UserRole @default(USER)
+
+  authoredPages WikiPage[]
+  ratings       Rating[]
+  bookmarks     Bookmark[]
+  comments      Comment[]
+
+  notificationsReceived Notification[] @relation("NotificationsReceived")
+  notificationsCreated  Notification[] @relation("NotificationsCreated")
+  wikiRevisionsAuthored WikiRevision[] @relation("WikiRevisionEditor")
+  wikiRevisionsReviewed WikiRevision[] @relation("WikiRevisionReviewer")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("users")
+}
+
+// =====================================================
+// WORKS
+// Bộ truyện / anime / manhua / donghua / game...
+// =====================================================
+
+model Work {
+  id String @id @default(uuid()) @db.Uuid
+
+  titleVi       String   @map("title_vi")
+  titleOriginal String?  @map("title_original")
+  titleRomaji   String?  @map("title_romaji")
+  titleEnglish  String?  @map("title_english")
+  otherNames    String[] @default([]) @map("other_names")
+
+  slug   String     @unique
+  type   WorkType   @map("work_type")
+  status WorkStatus @default(UNKNOWN)
+
+  authorName   String? @map("author_name")
+  artistName   String? @map("artist_name")
+  scriptWriter String? @map("script_writer")
+
+  country      String?
+  originalName String? @map("original_name")
+  magazine     String?
+  publisher    String?
+  platform     String?
+
+  startDate DateTime? @map("start_date") @db.Date
+  endDate   DateTime? @map("end_date") @db.Date
+
+  chapterCount Int? @map("chapter_count")
+  episodeCount Int? @map("episode_count")
+  volumeCount  Int? @map("volume_count")
+  seasonCount  Int? @map("season_count")
+
+  description String?
+  synopsis    String?
+
+  posterUrl String? @map("poster_url")
+  bannerUrl String? @map("banner_url")
+
+  officialUrl   String? @map("official_url")
+  legalReadUrl  String? @map("legal_read_url")
+  legalWatchUrl String? @map("legal_watch_url")
+
+  avgRating   Decimal @default(0) @map("avg_rating") @db.Decimal(4, 2)
+  ratingCount Int     @default(0) @map("rating_count")
+  viewCount   Int     @default(0) @map("view_count")
+
+  genres         WorkGenre[]
+  characters     WorkCharacter[]
+  artifacts      Artifact[]
+  skills         Skill[]
+  factions       Faction[]
+  terms          Term[]
+  wikiPages      WikiPage[]
+  timelineEvents TimelineEvent[]
+  mediaAssets    MediaAsset[]
+  ratings        Rating[]
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([type])
+  @@index([status])
+  @@index([titleVi])
+  @@map("works")
+}
+
+// =====================================================
+// GENRES
+// Thể loại của tác phẩm: action, cultivation, isekai...
+// =====================================================
+
+model Genre {
+  id   String @id @default(uuid()) @db.Uuid
+  name String @unique
+  slug String @unique
+
+  works WorkGenre[]
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("genres")
+}
+
+model WorkGenre {
+  workId  String @map("work_id") @db.Uuid
+  genreId String @map("genre_id") @db.Uuid
+
+  work  Work  @relation(fields: [workId], references: [id], onDelete: Cascade)
+  genre Genre @relation(fields: [genreId], references: [id], onDelete: Cascade)
+
+  @@id([workId, genreId])
+  @@index([workId])
+  @@index([genreId])
+  @@map("work_genres")
+}
+
+// =====================================================
+// CHARACTERS
+// Nhân vật và profile spoiler
+// =====================================================
+
+model Character {
+  id String @id @default(uuid()) @db.Uuid
+
+  nameVi       String   @map("name_vi")
+  nameOriginal String?  @map("name_original")
+  nameRomaji   String?  @map("name_romaji")
+  nameEnglish  String?  @map("name_english")
+  aliases      String[] @default([])
+
+  slug String @unique
+
+  gender      String?
+  age         String?
+  birthday    String?
+  species     String?
+  occupation  String?
+  voiceActors String[] @default([]) @map("voice_actors")
+
+  shortIntro  String? @map("short_intro")
+  background  String?
+  appearance  String?
+  personality String?
+  lifeStory   String? @map("life_story")
+
+  avatarUrl String? @map("avatar_url")
+  coverUrl  String? @map("cover_url")
+
+  isSpoilerHeavy Boolean @default(false) @map("is_spoiler_heavy")
+  viewCount      Int     @default(0) @map("view_count")
+
+  works          WorkCharacter[]
+  skills         CharacterSkill[]
+  factions       CharacterFaction[]
+  artifactOwners ArtifactOwner[]
+  relationsFrom  CharacterRelation[] @relation("CharacterRelationFrom")
+  relationsTo    CharacterRelation[] @relation("CharacterRelationTo")
+  timelineEvents TimelineEvent[]
+  wikiPages      WikiPage[]
+  mediaAssets    MediaAsset[]
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([nameVi])
+  @@map("characters")
+}
+
+model WorkCharacter {
+  workId      String            @map("work_id") @db.Uuid
+  characterId String            @map("character_id") @db.Uuid
+  role        CharacterWorkRole @default(UNKNOWN)
+  description String?
+  sortOrder   Int               @default(0) @map("sort_order")
+
+  work      Work      @relation(fields: [workId], references: [id], onDelete: Cascade)
+  character Character @relation(fields: [characterId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@id([workId, characterId])
+  @@index([workId])
+  @@index([characterId])
+  @@index([role])
+  @@map("work_characters")
+}
+
+model CharacterRelation {
+  id String @id @default(uuid()) @db.Uuid
+
+  fromCharacterId String @map("from_character_id") @db.Uuid
+  toCharacterId   String @map("to_character_id") @db.Uuid
+
+  fromCharacter Character @relation("CharacterRelationFrom", fields: [fromCharacterId], references: [id], onDelete: Cascade)
+  toCharacter   Character @relation("CharacterRelationTo", fields: [toCharacterId], references: [id], onDelete: Cascade)
+
+  relationType CharacterRelationType @map("relation_type")
+  description  String?
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@unique([fromCharacterId, toCharacterId, relationType])
+  @@index([fromCharacterId])
+  @@index([toCharacterId])
+  @@index([relationType])
+  @@map("character_relations")
+}
+
+// =====================================================
+// ARTIFACTS
+// Bảo vật / pháp bảo / thần khí / đan dược / bí tịch / vũ khí...
+// =====================================================
+
+model Artifact {
+  id String @id @default(uuid()) @db.Uuid
+
+  nameVi       String   @map("name_vi")
+  nameOriginal String?  @map("name_original")
+  nameRomaji   String?  @map("name_romaji")
+  nameEnglish  String?  @map("name_english")
+  aliases      String[] @default([])
+
+  slug String @unique
+
+  workId String? @map("work_id") @db.Uuid
+  work   Work?   @relation(fields: [workId], references: [id], onDelete: SetNull)
+
+  type           ArtifactType @default(OTHER) @map("artifact_type")
+  rank           String?
+  origin         String?
+  trueNature     String?      @map("true_nature")
+  ownerCondition String?      @map("owner_condition")
+
+  description String?
+  appearance  String?
+  abilities   String?
+  weakness    String?
+  limitation  String?
+
+  firstAppearance String? @map("first_appearance")
+  currentStatus   String? @map("current_status")
+
+  imageUrl String? @map("image_url")
+  coverUrl String? @map("cover_url")
+
+  isSpoilerHeavy Boolean @default(true) @map("is_spoiler_heavy")
+  viewCount      Int     @default(0) @map("view_count")
+
+  functions      ArtifactFunction[]
+  owners         ArtifactOwner[]
+  timelineEvents TimelineEvent[]
+  wikiPages      WikiPage[]
+  mediaAssets    MediaAsset[]
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([workId])
+  @@index([type])
+  @@index([nameVi])
+  @@map("artifacts")
+}
+
+model ArtifactFunction {
+  id String @id @default(uuid()) @db.Uuid
+
+  artifactId String   @map("artifact_id") @db.Uuid
+  artifact   Artifact @relation(fields: [artifactId], references: [id], onDelete: Cascade)
+
+  title       String
+  description String
+  type        ArtifactFunctionType @default(OTHER) @map("function_type")
+
+  sortOrder Int     @default(0) @map("sort_order")
+  isSpoiler Boolean @default(true) @map("is_spoiler")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([artifactId])
+  @@index([type])
+  @@map("artifact_functions")
+}
+
+model ArtifactOwner {
+  id String @id @default(uuid()) @db.Uuid
+
+  artifactId String   @map("artifact_id") @db.Uuid
+  artifact   Artifact @relation(fields: [artifactId], references: [id], onDelete: Cascade)
+
+  characterId String?    @map("character_id") @db.Uuid
+  character   Character? @relation(fields: [characterId], references: [id], onDelete: SetNull)
+
+  ownerName     String?               @map("owner_name")
+  ownershipType ArtifactOwnershipType @default(OWNER) @map("ownership_type")
+
+  description String?
+  arcName     String? @map("arc_name")
+  chapterFrom Int?    @map("chapter_from")
+  chapterTo   Int?    @map("chapter_to")
+
+  sortOrder Int     @default(0) @map("sort_order")
+  isSpoiler Boolean @default(true) @map("is_spoiler")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([artifactId])
+  @@index([characterId])
+  @@index([ownershipType])
+  @@map("artifact_owners")
+}
+
+// =====================================================
+// SKILLS
+// Kỹ năng / công pháp / chiêu thức / huyết mạch / trận pháp...
+// =====================================================
+
+model Skill {
+  id String @id @default(uuid()) @db.Uuid
+
+  nameVi       String   @map("name_vi")
+  nameOriginal String?  @map("name_original")
+  nameEnglish  String?  @map("name_english")
+  aliases      String[] @default([])
+
+  slug String @unique
+
+  workId String? @map("work_id") @db.Uuid
+  work   Work?   @relation(fields: [workId], references: [id], onDelete: SetNull)
+
+  type        SkillType @default(OTHER) @map("skill_type")
+  rank        String?
+  description String?
+  effect      String?
+  limitation  String?
+
+  characters  CharacterSkill[]
+  wikiPages   WikiPage[]
+  mediaAssets MediaAsset[]
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([workId])
+  @@index([type])
+  @@map("skills")
+}
+
+model CharacterSkill {
+  characterId String @map("character_id") @db.Uuid
+  skillId     String @map("skill_id") @db.Uuid
+
+  character Character @relation(fields: [characterId], references: [id], onDelete: Cascade)
+  skill     Skill     @relation(fields: [skillId], references: [id], onDelete: Cascade)
+
+  note      String?
+  sortOrder Int     @default(0) @map("sort_order")
+
+  @@id([characterId, skillId])
+  @@index([characterId])
+  @@index([skillId])
+  @@map("character_skills")
+}
+
+// =====================================================
+// FACTIONS
+// Phe phái / tông môn / tổ chức / gia tộc...
+// =====================================================
+
+model Faction {
+  id String @id @default(uuid()) @db.Uuid
+
+  nameVi       String   @map("name_vi")
+  nameOriginal String?  @map("name_original")
+  nameEnglish  String?  @map("name_english")
+  aliases      String[] @default([])
+
+  slug String @unique
+
+  workId String? @map("work_id") @db.Uuid
+  work   Work?   @relation(fields: [workId], references: [id], onDelete: SetNull)
+
+  type         FactionType @default(OTHER) @map("faction_type")
+  description  String?
+  leaderName   String?     @map("leader_name")
+  headquarters String?
+
+  characters     CharacterFaction[]
+  timelineEvents TimelineEvent[]
+  wikiPages      WikiPage[]
+  mediaAssets    MediaAsset[]
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([workId])
+  @@index([type])
+  @@map("factions")
+}
+
+model CharacterFaction {
+  characterId String @map("character_id") @db.Uuid
+  factionId   String @map("faction_id") @db.Uuid
+
+  character Character @relation(fields: [characterId], references: [id], onDelete: Cascade)
+  faction   Faction   @relation(fields: [factionId], references: [id], onDelete: Cascade)
+
+  role String?
+  note String?
+
+  @@id([characterId, factionId])
+  @@index([characterId])
+  @@index([factionId])
+  @@map("character_factions")
+}
+
+// =====================================================
+// TERMS
+// Thuật ngữ / cảnh giới / khái niệm / hệ thống sức mạnh...
+// =====================================================
+
+model Term {
+  id String @id @default(uuid()) @db.Uuid
+
+  nameVi       String   @map("name_vi")
+  nameOriginal String?  @map("name_original")
+  nameEnglish  String?  @map("name_english")
+  aliases      String[] @default([])
+
+  slug String @unique
+
+  workId String? @map("work_id") @db.Uuid
+  work   Work?   @relation(fields: [workId], references: [id], onDelete: SetNull)
+
+  type        TermType @default(OTHER) @map("term_type")
+  description String?
+  levelOrder  Int?     @map("level_order")
+
+  wikiPages   WikiPage[]
+  mediaAssets MediaAsset[]
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([workId])
+  @@index([type])
+  @@map("terms")
+}
+
+// =====================================================
+// WIKI PAGES & SECTIONS
+// Đây là phần quan trọng nhất cho bài review spoiler/profile.
+// =====================================================
+
+model WikiPage {
+  id String @id @default(uuid()) @db.Uuid
+
+  title   String
+  slug    String  @unique
+  excerpt String?
+
+  type   WikiPageType  @map("page_type")
+  status PublishStatus @default(DRAFT)
+
+  coverUrl String? @map("cover_url")
+
+  // Cho phép một bài gắn với tác phẩm/nhân vật/bảo vật/kỹ năng/phe phái/thuật ngữ.
+  workId String? @map("work_id") @db.Uuid
+  work   Work?   @relation(fields: [workId], references: [id], onDelete: SetNull)
+
+  characterId String?    @map("character_id") @db.Uuid
+  character   Character? @relation(fields: [characterId], references: [id], onDelete: SetNull)
+
+  artifactId String?   @map("artifact_id") @db.Uuid
+  artifact   Artifact? @relation(fields: [artifactId], references: [id], onDelete: SetNull)
+
+  skillId String? @map("skill_id") @db.Uuid
+  skill   Skill?  @relation(fields: [skillId], references: [id], onDelete: SetNull)
+
+  factionId String?  @map("faction_id") @db.Uuid
+  faction   Faction? @relation(fields: [factionId], references: [id], onDelete: SetNull)
+
+  termId String? @map("term_id") @db.Uuid
+  term   Term?   @relation(fields: [termId], references: [id], onDelete: SetNull)
+
+  authorId String? @map("author_id") @db.Uuid
+  author   User?   @relation(fields: [authorId], references: [id], onDelete: SetNull)
+
+  // Có thể để null nếu chỉ dùng wiki_sections.
+  // Giữ lại để sau này import bài cũ / editor markdown đơn giản.
+  contentMd String? @map("content_md")
+
+  hasSpoiler   Boolean      @default(false) @map("has_spoiler")
+  spoilerLevel SpoilerLevel @default(NONE) @map("spoiler_level")
+
+  seoTitle       String? @map("seo_title")
+  seoDescription String? @map("seo_description")
+  canonicalUrl   String? @map("canonical_url")
+
+  viewCount   Int       @default(0) @map("view_count")
+  publishedAt DateTime? @map("published_at")
+
+  sections    WikiSection[]
+  tags        WikiPageTag[]
+  sources     SourceReference[]
+  mediaAssets MediaAsset[]
+  comments    Comment[]
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([type])
+  @@index([status])
+  @@index([workId])
+  @@index([characterId])
+  @@index([artifactId])
+  @@index([skillId])
+  @@index([factionId])
+  @@index([termId])
+  @@index([publishedAt])
+  @@index([status, publishedAt])
+  @@index([workId, status, type])
+  @@map("wiki_pages")
+}
+
+model WikiSection {
+  id String @id @default(uuid()) @db.Uuid
+
+  pageId String   @map("page_id") @db.Uuid
+  page   WikiPage @relation(fields: [pageId], references: [id], onDelete: Cascade)
+
+  parentId String?       @map("parent_id") @db.Uuid
+  parent   WikiSection?  @relation("SectionChildren", fields: [parentId], references: [id], onDelete: Cascade)
+  children WikiSection[] @relation("SectionChildren")
+
+  title     String
+  slug      String?
+  contentMd String          @default("") @map("content_md")
+  type      WikiSectionType @default(NORMAL) @map("section_type")
+  sortOrder Int             @default(0) @map("sort_order")
+  isSpoiler Boolean         @default(false) @map("is_spoiler")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([pageId])
+  @@index([parentId])
+  @@index([sortOrder])
+  @@index([pageId, parentId, sortOrder])
+  @@map("wiki_sections")
+}
+
+// =====================================================
+// WIKI REVISIONS
+// Lưu đề xuất chỉnh sửa và lịch sử duyệt/rollback cho WikiPage/WikiSection.
+// =====================================================
+
+model WikiRevision {
+  id String @id @default(uuid()) @db.Uuid
+
+  targetType WikiRevisionTargetType @map("target_type")
+  targetId   String                 @map("target_id") @db.Uuid
+
+  editorId String? @map("editor_id") @db.Uuid
+  editor   User?   @relation("WikiRevisionEditor", fields: [editorId], references: [id], onDelete: SetNull)
+
+  reviewerId String? @map("reviewer_id") @db.Uuid
+  reviewer   User?   @relation("WikiRevisionReviewer", fields: [reviewerId], references: [id], onDelete: SetNull)
+
+  status WikiRevisionStatus @default(PENDING)
+
+  // Preview nhanh nội dung đề xuất; service vẫn dùng newSnapshot làm source of truth khi apply.
+  title     String?
+  contentMd String? @map("content_md")
+
+  // oldSnapshot lưu state hiện tại trước khi sửa, dùng để audit/rollback.
+  // newSnapshot lưu state đề xuất sau khi sửa; khi duyệt, service apply state này.
+  oldSnapshot Json? @map("old_snapshot")
+  newSnapshot Json  @map("new_snapshot")
+
+  changeNote String? @map("change_note")
+  reviewNote String? @map("review_note")
+
+  reviewedAt DateTime? @map("reviewed_at")
+  appliedAt  DateTime? @map("applied_at")
+
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@index([targetType, targetId, createdAt])
+  @@index([targetType, targetId, status])
+  @@index([editorId])
+  @@index([reviewerId])
+  @@index([status, createdAt])
+  @@map("wiki_revisions")
+}
+
+// =====================================================
+// TAGS
+// Tag dùng cho wiki pages: spoil, review, tu tiên, nhân vật mạnh...
+// =====================================================
+
+model Tag {
+  id   String @id @default(uuid()) @db.Uuid
+  name String @unique
+  slug String @unique
+
+  pages WikiPageTag[]
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("tags")
+}
+
+model WikiPageTag {
+  pageId String @map("page_id") @db.Uuid
+  tagId  String @map("tag_id") @db.Uuid
+
+  page WikiPage @relation(fields: [pageId], references: [id], onDelete: Cascade)
+  tag  Tag      @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  @@id([pageId, tagId])
+  @@index([pageId])
+  @@index([tagId])
+  @@map("wiki_page_tags")
+}
+
+// =====================================================
+// TIMELINE
+// Diễn biến spoiler của tác phẩm / nhân vật / bảo vật / phe phái.
+// =====================================================
+
+model TimelineEvent {
+  id String @id @default(uuid()) @db.Uuid
+
+  workId String? @map("work_id") @db.Uuid
+  work   Work?   @relation(fields: [workId], references: [id], onDelete: Cascade)
+
+  characterId String?    @map("character_id") @db.Uuid
+  character   Character? @relation(fields: [characterId], references: [id], onDelete: Cascade)
+
+  artifactId String?   @map("artifact_id") @db.Uuid
+  artifact   Artifact? @relation(fields: [artifactId], references: [id], onDelete: Cascade)
+
+  factionId String?  @map("faction_id") @db.Uuid
+  faction   Faction? @relation(fields: [factionId], references: [id], onDelete: Cascade)
+
+  title       String
+  slug        String?
+  description String
+
+  arcName     String? @map("arc_name")
+  chapterFrom Int?    @map("chapter_from")
+  chapterTo   Int?    @map("chapter_to")
+  episodeFrom Int?    @map("episode_from")
+  episodeTo   Int?    @map("episode_to")
+
+  sortOrder Int     @default(0) @map("sort_order")
+  isSpoiler Boolean @default(true) @map("is_spoiler")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([workId])
+  @@index([characterId])
+  @@index([artifactId])
+  @@index([factionId])
+  @@index([sortOrder])
+  @@index([workId, sortOrder])
+  @@map("timeline_events")
+}
+
+// =====================================================
+// MEDIA
+// Ảnh minh họa, poster, gallery. Nên lưu nguồn/credit để an toàn bản quyền hơn.
+// =====================================================
+
+model MediaAsset {
+  id   String    @id @default(uuid()) @db.Uuid
+  url  String
+  type MediaType @default(IMAGE) @map("media_type")
+
+  altText   String? @map("alt_text")
+  caption   String?
+  sourceUrl String? @map("source_url")
+  credit    String?
+
+  workId String? @map("work_id") @db.Uuid
+  work   Work?   @relation(fields: [workId], references: [id], onDelete: Cascade)
+
+  characterId String?    @map("character_id") @db.Uuid
+  character   Character? @relation(fields: [characterId], references: [id], onDelete: Cascade)
+
+  artifactId String?   @map("artifact_id") @db.Uuid
+  artifact   Artifact? @relation(fields: [artifactId], references: [id], onDelete: Cascade)
+
+  skillId String? @map("skill_id") @db.Uuid
+  skill   Skill?  @relation(fields: [skillId], references: [id], onDelete: Cascade)
+
+  factionId String?  @map("faction_id") @db.Uuid
+  faction   Faction? @relation(fields: [factionId], references: [id], onDelete: Cascade)
+
+  termId String? @map("term_id") @db.Uuid
+  term   Term?   @relation(fields: [termId], references: [id], onDelete: Cascade)
+
+  pageId String?   @map("page_id") @db.Uuid
+  page   WikiPage? @relation(fields: [pageId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([workId])
+  @@index([characterId])
+  @@index([artifactId])
+  @@index([skillId])
+  @@index([factionId])
+  @@index([termId])
+  @@index([pageId])
+  @@map("media_assets")
+}
+
+// =====================================================
+// SOURCES
+// Nguồn tham khảo cho bài wiki/profile/review.
+// =====================================================
+
+model SourceReference {
+  id String @id @default(uuid()) @db.Uuid
+
+  pageId String?   @map("page_id") @db.Uuid
+  page   WikiPage? @relation(fields: [pageId], references: [id], onDelete: Cascade)
+
+  title      String
+  url        String?
+  sourceName String?   @map("source_name")
+  accessedAt DateTime? @map("accessed_at") @db.Date
+  note       String?
+
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@index([pageId])
+  @@map("source_references")
+}
+
+// =====================================================
+// USER INTERACTIONS
+// =====================================================
+
+model Rating {
+  userId String @map("user_id") @db.Uuid
+  workId String @map("work_id") @db.Uuid
+
+  // Prisma không tạo CHECK constraint ở đây.
+  // Validate score 1-10 trong DTO/service NestJS.
+  score  Int
+  review String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  work Work @relation(fields: [workId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@id([userId, workId])
+  @@index([workId])
+  @@map("ratings")
+}
+
+model Bookmark {
+  id String @id @default(uuid()) @db.Uuid
+
+  userId String @map("user_id") @db.Uuid
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  targetType EntityType @map("target_type")
+  targetId   String     @map("target_id") @db.Uuid
+
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@unique([userId, targetType, targetId])
+  @@index([userId])
+  @@index([targetType, targetId])
+  @@map("bookmarks")
+}
+
+model Comment {
+  id String @id @default(uuid()) @db.Uuid
+
+  userId String @map("user_id") @db.Uuid
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  pageId String   @map("page_id") @db.Uuid
+  page   WikiPage @relation(fields: [pageId], references: [id], onDelete: Cascade)
+
+  parentId String?   @map("parent_id") @db.Uuid
+  parent   Comment?  @relation("CommentReplies", fields: [parentId], references: [id], onDelete: Cascade)
+  replies  Comment[] @relation("CommentReplies")
+
+  content  String
+  isHidden Boolean @default(false) @map("is_hidden")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([userId])
+  @@index([pageId])
+  @@index([parentId])
+  @@index([pageId, createdAt])
+  @@map("comments")
+}
+
+// =====================================================
+// NOTIFICATIONS
+// Thông báo cho reply comment, mention, bài được publish/update...
+// =====================================================
+
+model Notification {
+  id String @id @default(uuid()) @db.Uuid
+
+  recipientId String @map("recipient_id") @db.Uuid
+  recipient   User   @relation("NotificationsReceived", fields: [recipientId], references: [id], onDelete: Cascade)
+
+  actorId String? @map("actor_id") @db.Uuid
+  actor   User?   @relation("NotificationsCreated", fields: [actorId], references: [id], onDelete: SetNull)
+
+  type       NotificationType @map("notification_type")
+  targetType EntityType?      @map("target_type")
+  targetId   String?          @map("target_id") @db.Uuid
+
+  title   String
+  message String?
+  data    Json?
+
+  isRead Boolean   @default(false) @map("is_read")
+  readAt DateTime? @map("read_at")
+
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@index([recipientId])
+  @@index([recipientId, isRead, createdAt])
+  @@index([actorId])
+  @@index([targetType, targetId])
+  @@map("notifications")
+}
+
+// =====================================================
+// GENERIC ENTITY RELATIONS
+// Bảng quan hệ tổng quát để làm bài liên quan, recommendation, knowledge graph.
+// Ví dụ:
+// - CHARACTER Gojo USES_SKILL Limitless
+// - CHARACTER Vương Lâm OWNS_ARTIFACT Thiên Nghịch Châu
+// - WORK Tiên Nghịch SIMILAR_TO Phàm Nhân Tu Tiên
+// - CHARACTER A FAMILY_OF CHARACTER B
+// =====================================================
+
+model EntityRelation {
+  id String @id @default(uuid()) @db.Uuid
+
+  sourceType EntityType @map("source_type")
+  sourceId   String     @map("source_id") @db.Uuid
+
+  targetType EntityType @map("target_type")
+  targetId   String     @map("target_id") @db.Uuid
+
+  relationType EntityRelationType @map("relation_type")
+  weight       Float              @default(1)
+  note         String?
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@unique([sourceType, sourceId, targetType, targetId, relationType])
+  @@index([sourceType, sourceId])
+  @@index([targetType, targetId])
+  @@index([relationType])
+  @@map("entity_relations")
+}
