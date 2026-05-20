@@ -1,5 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
+import { APP_FILTER } from '@nestjs/core';
+import { PrismaExceptionFilter } from './common/filters/prisma-exception.filter';
 import appConfig from './config/app.config';
 import databaseConfig from './config/database.config';
 import { PrismaModule } from './database/prisma.module';
@@ -13,6 +15,11 @@ import { PrismaModule } from './database/prisma.module';
     PrismaModule,
   ],
   controllers: [],
-  providers: [],
+  providers: [
+    {
+      provide: APP_FILTER,
+      useClass: PrismaExceptionFilter,
+    },
+  ],
 })
 export class AppModule {}
