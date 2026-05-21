@@ -18,6 +18,20 @@ services:
       retries: 10
     restart: unless-stopped
 
+  redis:
+    image: redis:7-alpine
+    command: ["redis-server", "--appendonly", "yes"]
+    ports:
+      - "${REDIS_PORT:-6379}:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+
   api:
     build:
       context: .
@@ -27,10 +41,16 @@ services:
       NODE_ENV: production
       PORT: 3000
       DATABASE_URL: postgresql://${POSTGRES_USER:-lore_wiki}:${POSTGRES_PASSWORD:-change-me}@postgres:5432/${POSTGRES_DB:-lore_wiki}?schema=public
+      REDIS_URL: redis://redis:6379
+      THROTTLE_LIMIT: ${THROTTLE_LIMIT:-100}
+      THROTTLE_TTL_SECONDS: ${THROTTLE_TTL_SECONDS:-60}
+      THROTTLE_BLOCK_SECONDS: ${THROTTLE_BLOCK_SECONDS:-60}
     ports:
       - "${API_PORT:-3000}:3000"
     depends_on:
       postgres:
+        condition: service_healthy
+      redis:
         condition: service_healthy
     restart: unless-stopped
 
@@ -49,3 +69,4 @@ services:
 
 volumes:
   postgres_data:
+  redis_data:
