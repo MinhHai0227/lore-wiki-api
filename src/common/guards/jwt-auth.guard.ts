@@ -36,11 +36,7 @@ export class JwtAuthGuard extends AuthGuard('jwt') {
 
     if (err || !user) {
       throw (
-        err ||
-        new UnauthorizedException({
-          code: 'UNAUTHORIZED',
-          message: 'Cần đăng nhập để sử dụng dịch vụ',
-        })
+        err || new UnauthorizedException('Cần đăng nhập để sử dụng dịch vụ')
       );
     }
 
