@@ -11,6 +11,8 @@ import databaseConfig from './config/database.config';
 import redisConfig from './config/redis.config';
 import throttleConfig from './config/throttle.config';
 import { PrismaModule } from './database/prisma.module';
+import { GenresModule } from './modules/genres/genres.module';
+import { WorksModule } from './modules/works/works.module';
 import { RedisModule } from './redis/redis.module';
 
 @Module({
@@ -39,6 +41,8 @@ import { RedisModule } from './redis/redis.module';
       }),
     }),
     PrismaModule,
+    GenresModule,
+    WorksModule,
   ],
   controllers: [],
   providers: [
