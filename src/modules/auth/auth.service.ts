@@ -1,9 +1,14 @@
-import { Injectable, UnauthorizedException } from '@nestjs/common';
+import {
+  ConflictException,
+  Injectable,
+  UnauthorizedException,
+} from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { JwtService } from '@nestjs/jwt';
 import type { StringValue } from 'ms';
-import { User } from 'src/generated/prisma/client';
 import { verifyPassword } from 'src/common/utils/password';
+import { User } from 'src/generated/prisma/client';
+import { CreateUserDto } from '../users/dto/create-user.dto';
 import { UsersService } from '../users/users.service';
 
 export type AuthUser = Omit<User, 'passwordHash'>;
@@ -50,7 +55,50 @@ export class AuthService {
     return result;
   }
 
-  async generateToken(user: AuthUser): Promise<AuthTokenResponse> {
+  async register(createUserDto: CreateUserDto): Promise<AuthTokenResponse> {
+    const existingUser = await this.usersService.findByEmail(
+      createUserDto.email,
+    );
+
+    if (existingUser) {
+      throw new ConflictException('Email đã tồn tại trong hệ thống');
+    }
+
+    const user = await this.usersService.create(createUserDto);
+    const { passwordHash, ...authUser } = user;
+
+    return this.generateToken(authUser);
+  }
+
+  async login(user: AuthUser): Promise<AuthTokenResponse> {
+    return this.generateToken(user);
+  }
+
+  async refreshToken(refreshToken: string): Promise<AuthTokenResponse> {
+    const payload = await this.verifyRefreshToken(refreshToken);
+
+    if (payload.tokenType !== 'refresh') {
+      throw new UnauthorizedException({
+        code: 'REFRESH_TOKEN_INVALID',
+        message: 'Refresh token không hợp lệ',
+      });
+    }
+
+    const user = await this.usersService.findById(payload.sub);
+
+    if (!user) {
+      throw new UnauthorizedException({
+        code: 'REFRESH_TOKEN_INVALID',
+        message: 'Refresh token không hợp lệ',
+      });
+    }
+
+    const { passwordHash, ...authUser } = user;
+
+    return this.generateToken(authUser);
+  }
+
+  private async generateToken(user: AuthUser): Promise<AuthTokenResponse> {
     const payload: AuthTokenPayload = {
       sub: user.id,
       email: user.email,
@@ -90,34 +138,6 @@ export class AuthService {
         role: user.role,
       },
     };
-  }
-
-  async login(user: AuthUser): Promise<AuthTokenResponse> {
-    return this.generateToken(user);
-  }
-
-  async refreshToken(refreshToken: string): Promise<AuthTokenResponse> {
-    const payload = await this.verifyRefreshToken(refreshToken);
-
-    if (payload.tokenType !== 'refresh') {
-      throw new UnauthorizedException({
-        code: 'REFRESH_TOKEN_INVALID',
-        message: 'Refresh token không hợp lệ',
-      });
-    }
-
-    const user = await this.usersService.findById(payload.sub);
-
-    if (!user) {
-      throw new UnauthorizedException({
-        code: 'REFRESH_TOKEN_INVALID',
-        message: 'Refresh token không hợp lệ',
-      });
-    }
-
-    const { passwordHash, ...authUser } = user;
-
-    return this.generateToken(authUser);
   }
 
   private async verifyRefreshToken(refreshToken: string) {
