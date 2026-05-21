@@ -6,16 +6,19 @@ import { ThrottlerGuard, ThrottlerModule, seconds } from '@nestjs/throttler';
 import { ThrottlerStorageRedisService } from '@nest-lab/throttler-storage-redis';
 import Redis from 'ioredis';
 import { PrismaExceptionFilter } from './common/filters/prisma-exception.filter';
+import { JwtAuthGuard } from './common/guards/jwt-auth.guard';
 import appConfig from './config/app.config';
+import authConfig from './config/auth.config';
 import databaseConfig from './config/database.config';
 import redisConfig from './config/redis.config';
 import storageConfig from './config/storage.config';
 import throttleConfig from './config/throttle.config';
 import { PrismaModule } from './database/prisma.module';
 import { GenresModule } from './modules/genres/genres.module';
-import { WorksModule } from './modules/works/works.module';
 import { RedisModule } from './redis/redis.module';
 import { StorageModule } from './storage/storage.module';
+import { AuthModule } from './modules/auth/auth.module';
+import { UsersModule } from './modules/users/users.module';
 
 @Module({
   imports: [
@@ -23,6 +26,7 @@ import { StorageModule } from './storage/storage.module';
       isGlobal: true,
       load: [
         appConfig,
+        authConfig,
         databaseConfig,
         redisConfig,
         storageConfig,
@@ -51,13 +55,18 @@ import { StorageModule } from './storage/storage.module';
     }),
     PrismaModule,
     GenresModule,
-    WorksModule,
+    AuthModule,
+    UsersModule,
   ],
   controllers: [],
   providers: [
     {
       provide: APP_GUARD,
       useClass: ThrottlerGuard,
+    },
+    {
+      provide: APP_GUARD,
+      useClass: JwtAuthGuard,
     },
     {
       provide: APP_FILTER,
