@@ -9,19 +9,28 @@ import { PrismaExceptionFilter } from './common/filters/prisma-exception.filter'
 import appConfig from './config/app.config';
 import databaseConfig from './config/database.config';
 import redisConfig from './config/redis.config';
+import storageConfig from './config/storage.config';
 import throttleConfig from './config/throttle.config';
 import { PrismaModule } from './database/prisma.module';
 import { GenresModule } from './modules/genres/genres.module';
 import { WorksModule } from './modules/works/works.module';
 import { RedisModule } from './redis/redis.module';
+import { StorageModule } from './storage/storage.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      load: [appConfig, databaseConfig, redisConfig, throttleConfig],
+      load: [
+        appConfig,
+        databaseConfig,
+        redisConfig,
+        storageConfig,
+        throttleConfig,
+      ],
     }),
     RedisModule,
+    StorageModule,
     ThrottlerModule.forRootAsync({
       imports: [ConfigModule, RedisModule],
       inject: [ConfigService, getRedisConnectionToken()],
