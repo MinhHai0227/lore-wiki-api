@@ -54,7 +54,6 @@ export type WikiPageMinAggregateOutputType = {
   spoilerLevel: $Enums.SpoilerLevel | null
   seoTitle: string | null
   seoDescription: string | null
-  canonicalUrl: string | null
   viewCount: number | null
   publishedAt: Date | null
   createdAt: Date | null
@@ -81,7 +80,6 @@ export type WikiPageMaxAggregateOutputType = {
   spoilerLevel: $Enums.SpoilerLevel | null
   seoTitle: string | null
   seoDescription: string | null
-  canonicalUrl: string | null
   viewCount: number | null
   publishedAt: Date | null
   createdAt: Date | null
@@ -108,7 +106,6 @@ export type WikiPageCountAggregateOutputType = {
   spoilerLevel: number
   seoTitle: number
   seoDescription: number
-  canonicalUrl: number
   viewCount: number
   publishedAt: number
   createdAt: number
@@ -145,7 +142,6 @@ export type WikiPageMinAggregateInputType = {
   spoilerLevel?: true
   seoTitle?: true
   seoDescription?: true
-  canonicalUrl?: true
   viewCount?: true
   publishedAt?: true
   createdAt?: true
@@ -172,7 +168,6 @@ export type WikiPageMaxAggregateInputType = {
   spoilerLevel?: true
   seoTitle?: true
   seoDescription?: true
-  canonicalUrl?: true
   viewCount?: true
   publishedAt?: true
   createdAt?: true
@@ -199,7 +194,6 @@ export type WikiPageCountAggregateInputType = {
   spoilerLevel?: true
   seoTitle?: true
   seoDescription?: true
-  canonicalUrl?: true
   viewCount?: true
   publishedAt?: true
   createdAt?: true
@@ -313,7 +307,6 @@ export type WikiPageGroupByOutputType = {
   spoilerLevel: $Enums.SpoilerLevel
   seoTitle: string | null
   seoDescription: string | null
-  canonicalUrl: string | null
   viewCount: number
   publishedAt: Date | null
   createdAt: Date
@@ -363,7 +356,6 @@ export type WikiPageWhereInput = {
   spoilerLevel?: Prisma.EnumSpoilerLevelFilter<"WikiPage"> | $Enums.SpoilerLevel
   seoTitle?: Prisma.StringNullableFilter<"WikiPage"> | string | null
   seoDescription?: Prisma.StringNullableFilter<"WikiPage"> | string | null
-  canonicalUrl?: Prisma.StringNullableFilter<"WikiPage"> | string | null
   viewCount?: Prisma.IntFilter<"WikiPage"> | number
   publishedAt?: Prisma.DateTimeNullableFilter<"WikiPage"> | Date | string | null
   createdAt?: Prisma.DateTimeFilter<"WikiPage"> | Date | string
@@ -402,7 +394,6 @@ export type WikiPageOrderByWithRelationInput = {
   spoilerLevel?: Prisma.SortOrder
   seoTitle?: Prisma.SortOrderInput | Prisma.SortOrder
   seoDescription?: Prisma.SortOrderInput | Prisma.SortOrder
-  canonicalUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   viewCount?: Prisma.SortOrder
   publishedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -444,7 +435,6 @@ export type WikiPageWhereUniqueInput = Prisma.AtLeast<{
   spoilerLevel?: Prisma.EnumSpoilerLevelFilter<"WikiPage"> | $Enums.SpoilerLevel
   seoTitle?: Prisma.StringNullableFilter<"WikiPage"> | string | null
   seoDescription?: Prisma.StringNullableFilter<"WikiPage"> | string | null
-  canonicalUrl?: Prisma.StringNullableFilter<"WikiPage"> | string | null
   viewCount?: Prisma.IntFilter<"WikiPage"> | number
   publishedAt?: Prisma.DateTimeNullableFilter<"WikiPage"> | Date | string | null
   createdAt?: Prisma.DateTimeFilter<"WikiPage"> | Date | string
@@ -483,7 +473,6 @@ export type WikiPageOrderByWithAggregationInput = {
   spoilerLevel?: Prisma.SortOrder
   seoTitle?: Prisma.SortOrderInput | Prisma.SortOrder
   seoDescription?: Prisma.SortOrderInput | Prisma.SortOrder
-  canonicalUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   viewCount?: Prisma.SortOrder
   publishedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -518,7 +507,6 @@ export type WikiPageScalarWhereWithAggregatesInput = {
   spoilerLevel?: Prisma.EnumSpoilerLevelWithAggregatesFilter<"WikiPage"> | $Enums.SpoilerLevel
   seoTitle?: Prisma.StringNullableWithAggregatesFilter<"WikiPage"> | string | null
   seoDescription?: Prisma.StringNullableWithAggregatesFilter<"WikiPage"> | string | null
-  canonicalUrl?: Prisma.StringNullableWithAggregatesFilter<"WikiPage"> | string | null
   viewCount?: Prisma.IntWithAggregatesFilter<"WikiPage"> | number
   publishedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"WikiPage"> | Date | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"WikiPage"> | Date | string
@@ -538,7 +526,6 @@ export type WikiPageCreateInput = {
   spoilerLevel?: $Enums.SpoilerLevel
   seoTitle?: string | null
   seoDescription?: string | null
-  canonicalUrl?: string | null
   viewCount?: number
   publishedAt?: Date | string | null
   createdAt?: Date | string
@@ -577,7 +564,6 @@ export type WikiPageUncheckedCreateInput = {
   spoilerLevel?: $Enums.SpoilerLevel
   seoTitle?: string | null
   seoDescription?: string | null
-  canonicalUrl?: string | null
   viewCount?: number
   publishedAt?: Date | string | null
   createdAt?: Date | string
@@ -602,7 +588,6 @@ export type WikiPageUpdateInput = {
   spoilerLevel?: Prisma.EnumSpoilerLevelFieldUpdateOperationsInput | $Enums.SpoilerLevel
   seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  canonicalUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   viewCount?: Prisma.IntFieldUpdateOperationsInput | number
   publishedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -641,7 +626,6 @@ export type WikiPageUncheckedUpdateInput = {
   spoilerLevel?: Prisma.EnumSpoilerLevelFieldUpdateOperationsInput | $Enums.SpoilerLevel
   seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  canonicalUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   viewCount?: Prisma.IntFieldUpdateOperationsInput | number
   publishedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -673,7 +657,6 @@ export type WikiPageCreateManyInput = {
   spoilerLevel?: $Enums.SpoilerLevel
   seoTitle?: string | null
   seoDescription?: string | null
-  canonicalUrl?: string | null
   viewCount?: number
   publishedAt?: Date | string | null
   createdAt?: Date | string
@@ -693,7 +676,6 @@ export type WikiPageUpdateManyMutationInput = {
   spoilerLevel?: Prisma.EnumSpoilerLevelFieldUpdateOperationsInput | $Enums.SpoilerLevel
   seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  canonicalUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   viewCount?: Prisma.IntFieldUpdateOperationsInput | number
   publishedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -720,7 +702,6 @@ export type WikiPageUncheckedUpdateManyInput = {
   spoilerLevel?: Prisma.EnumSpoilerLevelFieldUpdateOperationsInput | $Enums.SpoilerLevel
   seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  canonicalUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   viewCount?: Prisma.IntFieldUpdateOperationsInput | number
   publishedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -757,7 +738,6 @@ export type WikiPageCountOrderByAggregateInput = {
   spoilerLevel?: Prisma.SortOrder
   seoTitle?: Prisma.SortOrder
   seoDescription?: Prisma.SortOrder
-  canonicalUrl?: Prisma.SortOrder
   viewCount?: Prisma.SortOrder
   publishedAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -788,7 +768,6 @@ export type WikiPageMaxOrderByAggregateInput = {
   spoilerLevel?: Prisma.SortOrder
   seoTitle?: Prisma.SortOrder
   seoDescription?: Prisma.SortOrder
-  canonicalUrl?: Prisma.SortOrder
   viewCount?: Prisma.SortOrder
   publishedAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -815,7 +794,6 @@ export type WikiPageMinOrderByAggregateInput = {
   spoilerLevel?: Prisma.SortOrder
   seoTitle?: Prisma.SortOrder
   seoDescription?: Prisma.SortOrder
-  canonicalUrl?: Prisma.SortOrder
   viewCount?: Prisma.SortOrder
   publishedAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -1229,7 +1207,6 @@ export type WikiPageCreateWithoutAuthorInput = {
   spoilerLevel?: $Enums.SpoilerLevel
   seoTitle?: string | null
   seoDescription?: string | null
-  canonicalUrl?: string | null
   viewCount?: number
   publishedAt?: Date | string | null
   createdAt?: Date | string
@@ -1266,7 +1243,6 @@ export type WikiPageUncheckedCreateWithoutAuthorInput = {
   spoilerLevel?: $Enums.SpoilerLevel
   seoTitle?: string | null
   seoDescription?: string | null
-  canonicalUrl?: string | null
   viewCount?: number
   publishedAt?: Date | string | null
   createdAt?: Date | string
@@ -1327,7 +1303,6 @@ export type WikiPageScalarWhereInput = {
   spoilerLevel?: Prisma.EnumSpoilerLevelFilter<"WikiPage"> | $Enums.SpoilerLevel
   seoTitle?: Prisma.StringNullableFilter<"WikiPage"> | string | null
   seoDescription?: Prisma.StringNullableFilter<"WikiPage"> | string | null
-  canonicalUrl?: Prisma.StringNullableFilter<"WikiPage"> | string | null
   viewCount?: Prisma.IntFilter<"WikiPage"> | number
   publishedAt?: Prisma.DateTimeNullableFilter<"WikiPage"> | Date | string | null
   createdAt?: Prisma.DateTimeFilter<"WikiPage"> | Date | string
@@ -1347,7 +1322,6 @@ export type WikiPageCreateWithoutWorkInput = {
   spoilerLevel?: $Enums.SpoilerLevel
   seoTitle?: string | null
   seoDescription?: string | null
-  canonicalUrl?: string | null
   viewCount?: number
   publishedAt?: Date | string | null
   createdAt?: Date | string
@@ -1384,7 +1358,6 @@ export type WikiPageUncheckedCreateWithoutWorkInput = {
   spoilerLevel?: $Enums.SpoilerLevel
   seoTitle?: string | null
   seoDescription?: string | null
-  canonicalUrl?: string | null
   viewCount?: number
   publishedAt?: Date | string | null
   createdAt?: Date | string
@@ -1435,7 +1408,6 @@ export type WikiPageCreateWithoutCharacterInput = {
   spoilerLevel?: $Enums.SpoilerLevel
   seoTitle?: string | null
   seoDescription?: string | null
-  canonicalUrl?: string | null
   viewCount?: number
   publishedAt?: Date | string | null
   createdAt?: Date | string
@@ -1472,7 +1444,6 @@ export type WikiPageUncheckedCreateWithoutCharacterInput = {
   spoilerLevel?: $Enums.SpoilerLevel
   seoTitle?: string | null
   seoDescription?: string | null
-  canonicalUrl?: string | null
   viewCount?: number
   publishedAt?: Date | string | null
   createdAt?: Date | string
@@ -1523,7 +1494,6 @@ export type WikiPageCreateWithoutArtifactInput = {
   spoilerLevel?: $Enums.SpoilerLevel
   seoTitle?: string | null
   seoDescription?: string | null
-  canonicalUrl?: string | null
   viewCount?: number
   publishedAt?: Date | string | null
   createdAt?: Date | string
@@ -1560,7 +1530,6 @@ export type WikiPageUncheckedCreateWithoutArtifactInput = {
   spoilerLevel?: $Enums.SpoilerLevel
   seoTitle?: string | null
   seoDescription?: string | null
-  canonicalUrl?: string | null
   viewCount?: number
   publishedAt?: Date | string | null
   createdAt?: Date | string
@@ -1611,7 +1580,6 @@ export type WikiPageCreateWithoutSkillInput = {
   spoilerLevel?: $Enums.SpoilerLevel
   seoTitle?: string | null
   seoDescription?: string | null
-  canonicalUrl?: string | null
   viewCount?: number
   publishedAt?: Date | string | null
   createdAt?: Date | string
@@ -1648,7 +1616,6 @@ export type WikiPageUncheckedCreateWithoutSkillInput = {
   spoilerLevel?: $Enums.SpoilerLevel
   seoTitle?: string | null
   seoDescription?: string | null
-  canonicalUrl?: string | null
   viewCount?: number
   publishedAt?: Date | string | null
   createdAt?: Date | string
@@ -1699,7 +1666,6 @@ export type WikiPageCreateWithoutFactionInput = {
   spoilerLevel?: $Enums.SpoilerLevel
   seoTitle?: string | null
   seoDescription?: string | null
-  canonicalUrl?: string | null
   viewCount?: number
   publishedAt?: Date | string | null
   createdAt?: Date | string
@@ -1736,7 +1702,6 @@ export type WikiPageUncheckedCreateWithoutFactionInput = {
   spoilerLevel?: $Enums.SpoilerLevel
   seoTitle?: string | null
   seoDescription?: string | null
-  canonicalUrl?: string | null
   viewCount?: number
   publishedAt?: Date | string | null
   createdAt?: Date | string
@@ -1787,7 +1752,6 @@ export type WikiPageCreateWithoutTermInput = {
   spoilerLevel?: $Enums.SpoilerLevel
   seoTitle?: string | null
   seoDescription?: string | null
-  canonicalUrl?: string | null
   viewCount?: number
   publishedAt?: Date | string | null
   createdAt?: Date | string
@@ -1824,7 +1788,6 @@ export type WikiPageUncheckedCreateWithoutTermInput = {
   spoilerLevel?: $Enums.SpoilerLevel
   seoTitle?: string | null
   seoDescription?: string | null
-  canonicalUrl?: string | null
   viewCount?: number
   publishedAt?: Date | string | null
   createdAt?: Date | string
@@ -1875,7 +1838,6 @@ export type WikiPageCreateWithoutSectionsInput = {
   spoilerLevel?: $Enums.SpoilerLevel
   seoTitle?: string | null
   seoDescription?: string | null
-  canonicalUrl?: string | null
   viewCount?: number
   publishedAt?: Date | string | null
   createdAt?: Date | string
@@ -1913,7 +1875,6 @@ export type WikiPageUncheckedCreateWithoutSectionsInput = {
   spoilerLevel?: $Enums.SpoilerLevel
   seoTitle?: string | null
   seoDescription?: string | null
-  canonicalUrl?: string | null
   viewCount?: number
   publishedAt?: Date | string | null
   createdAt?: Date | string
@@ -1953,7 +1914,6 @@ export type WikiPageUpdateWithoutSectionsInput = {
   spoilerLevel?: Prisma.EnumSpoilerLevelFieldUpdateOperationsInput | $Enums.SpoilerLevel
   seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  canonicalUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   viewCount?: Prisma.IntFieldUpdateOperationsInput | number
   publishedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1991,7 +1951,6 @@ export type WikiPageUncheckedUpdateWithoutSectionsInput = {
   spoilerLevel?: Prisma.EnumSpoilerLevelFieldUpdateOperationsInput | $Enums.SpoilerLevel
   seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  canonicalUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   viewCount?: Prisma.IntFieldUpdateOperationsInput | number
   publishedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2015,7 +1974,6 @@ export type WikiPageCreateWithoutTagsInput = {
   spoilerLevel?: $Enums.SpoilerLevel
   seoTitle?: string | null
   seoDescription?: string | null
-  canonicalUrl?: string | null
   viewCount?: number
   publishedAt?: Date | string | null
   createdAt?: Date | string
@@ -2053,7 +2011,6 @@ export type WikiPageUncheckedCreateWithoutTagsInput = {
   spoilerLevel?: $Enums.SpoilerLevel
   seoTitle?: string | null
   seoDescription?: string | null
-  canonicalUrl?: string | null
   viewCount?: number
   publishedAt?: Date | string | null
   createdAt?: Date | string
@@ -2093,7 +2050,6 @@ export type WikiPageUpdateWithoutTagsInput = {
   spoilerLevel?: Prisma.EnumSpoilerLevelFieldUpdateOperationsInput | $Enums.SpoilerLevel
   seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  canonicalUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   viewCount?: Prisma.IntFieldUpdateOperationsInput | number
   publishedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2131,7 +2087,6 @@ export type WikiPageUncheckedUpdateWithoutTagsInput = {
   spoilerLevel?: Prisma.EnumSpoilerLevelFieldUpdateOperationsInput | $Enums.SpoilerLevel
   seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  canonicalUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   viewCount?: Prisma.IntFieldUpdateOperationsInput | number
   publishedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2155,7 +2110,6 @@ export type WikiPageCreateWithoutMediaAssetsInput = {
   spoilerLevel?: $Enums.SpoilerLevel
   seoTitle?: string | null
   seoDescription?: string | null
-  canonicalUrl?: string | null
   viewCount?: number
   publishedAt?: Date | string | null
   createdAt?: Date | string
@@ -2193,7 +2147,6 @@ export type WikiPageUncheckedCreateWithoutMediaAssetsInput = {
   spoilerLevel?: $Enums.SpoilerLevel
   seoTitle?: string | null
   seoDescription?: string | null
-  canonicalUrl?: string | null
   viewCount?: number
   publishedAt?: Date | string | null
   createdAt?: Date | string
@@ -2233,7 +2186,6 @@ export type WikiPageUpdateWithoutMediaAssetsInput = {
   spoilerLevel?: Prisma.EnumSpoilerLevelFieldUpdateOperationsInput | $Enums.SpoilerLevel
   seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  canonicalUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   viewCount?: Prisma.IntFieldUpdateOperationsInput | number
   publishedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2271,7 +2223,6 @@ export type WikiPageUncheckedUpdateWithoutMediaAssetsInput = {
   spoilerLevel?: Prisma.EnumSpoilerLevelFieldUpdateOperationsInput | $Enums.SpoilerLevel
   seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  canonicalUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   viewCount?: Prisma.IntFieldUpdateOperationsInput | number
   publishedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2295,7 +2246,6 @@ export type WikiPageCreateWithoutSourcesInput = {
   spoilerLevel?: $Enums.SpoilerLevel
   seoTitle?: string | null
   seoDescription?: string | null
-  canonicalUrl?: string | null
   viewCount?: number
   publishedAt?: Date | string | null
   createdAt?: Date | string
@@ -2333,7 +2283,6 @@ export type WikiPageUncheckedCreateWithoutSourcesInput = {
   spoilerLevel?: $Enums.SpoilerLevel
   seoTitle?: string | null
   seoDescription?: string | null
-  canonicalUrl?: string | null
   viewCount?: number
   publishedAt?: Date | string | null
   createdAt?: Date | string
@@ -2373,7 +2322,6 @@ export type WikiPageUpdateWithoutSourcesInput = {
   spoilerLevel?: Prisma.EnumSpoilerLevelFieldUpdateOperationsInput | $Enums.SpoilerLevel
   seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  canonicalUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   viewCount?: Prisma.IntFieldUpdateOperationsInput | number
   publishedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2411,7 +2359,6 @@ export type WikiPageUncheckedUpdateWithoutSourcesInput = {
   spoilerLevel?: Prisma.EnumSpoilerLevelFieldUpdateOperationsInput | $Enums.SpoilerLevel
   seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  canonicalUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   viewCount?: Prisma.IntFieldUpdateOperationsInput | number
   publishedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2435,7 +2382,6 @@ export type WikiPageCreateWithoutCommentsInput = {
   spoilerLevel?: $Enums.SpoilerLevel
   seoTitle?: string | null
   seoDescription?: string | null
-  canonicalUrl?: string | null
   viewCount?: number
   publishedAt?: Date | string | null
   createdAt?: Date | string
@@ -2473,7 +2419,6 @@ export type WikiPageUncheckedCreateWithoutCommentsInput = {
   spoilerLevel?: $Enums.SpoilerLevel
   seoTitle?: string | null
   seoDescription?: string | null
-  canonicalUrl?: string | null
   viewCount?: number
   publishedAt?: Date | string | null
   createdAt?: Date | string
@@ -2513,7 +2458,6 @@ export type WikiPageUpdateWithoutCommentsInput = {
   spoilerLevel?: Prisma.EnumSpoilerLevelFieldUpdateOperationsInput | $Enums.SpoilerLevel
   seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  canonicalUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   viewCount?: Prisma.IntFieldUpdateOperationsInput | number
   publishedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2551,7 +2495,6 @@ export type WikiPageUncheckedUpdateWithoutCommentsInput = {
   spoilerLevel?: Prisma.EnumSpoilerLevelFieldUpdateOperationsInput | $Enums.SpoilerLevel
   seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  canonicalUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   viewCount?: Prisma.IntFieldUpdateOperationsInput | number
   publishedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2581,7 +2524,6 @@ export type WikiPageCreateManyAuthorInput = {
   spoilerLevel?: $Enums.SpoilerLevel
   seoTitle?: string | null
   seoDescription?: string | null
-  canonicalUrl?: string | null
   viewCount?: number
   publishedAt?: Date | string | null
   createdAt?: Date | string
@@ -2601,7 +2543,6 @@ export type WikiPageUpdateWithoutAuthorInput = {
   spoilerLevel?: Prisma.EnumSpoilerLevelFieldUpdateOperationsInput | $Enums.SpoilerLevel
   seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  canonicalUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   viewCount?: Prisma.IntFieldUpdateOperationsInput | number
   publishedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2638,7 +2579,6 @@ export type WikiPageUncheckedUpdateWithoutAuthorInput = {
   spoilerLevel?: Prisma.EnumSpoilerLevelFieldUpdateOperationsInput | $Enums.SpoilerLevel
   seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  canonicalUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   viewCount?: Prisma.IntFieldUpdateOperationsInput | number
   publishedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2669,7 +2609,6 @@ export type WikiPageUncheckedUpdateManyWithoutAuthorInput = {
   spoilerLevel?: Prisma.EnumSpoilerLevelFieldUpdateOperationsInput | $Enums.SpoilerLevel
   seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  canonicalUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   viewCount?: Prisma.IntFieldUpdateOperationsInput | number
   publishedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2695,7 +2634,6 @@ export type WikiPageCreateManyWorkInput = {
   spoilerLevel?: $Enums.SpoilerLevel
   seoTitle?: string | null
   seoDescription?: string | null
-  canonicalUrl?: string | null
   viewCount?: number
   publishedAt?: Date | string | null
   createdAt?: Date | string
@@ -2715,7 +2653,6 @@ export type WikiPageUpdateWithoutWorkInput = {
   spoilerLevel?: Prisma.EnumSpoilerLevelFieldUpdateOperationsInput | $Enums.SpoilerLevel
   seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  canonicalUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   viewCount?: Prisma.IntFieldUpdateOperationsInput | number
   publishedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2752,7 +2689,6 @@ export type WikiPageUncheckedUpdateWithoutWorkInput = {
   spoilerLevel?: Prisma.EnumSpoilerLevelFieldUpdateOperationsInput | $Enums.SpoilerLevel
   seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  canonicalUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   viewCount?: Prisma.IntFieldUpdateOperationsInput | number
   publishedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2783,7 +2719,6 @@ export type WikiPageUncheckedUpdateManyWithoutWorkInput = {
   spoilerLevel?: Prisma.EnumSpoilerLevelFieldUpdateOperationsInput | $Enums.SpoilerLevel
   seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  canonicalUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   viewCount?: Prisma.IntFieldUpdateOperationsInput | number
   publishedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2809,7 +2744,6 @@ export type WikiPageCreateManyCharacterInput = {
   spoilerLevel?: $Enums.SpoilerLevel
   seoTitle?: string | null
   seoDescription?: string | null
-  canonicalUrl?: string | null
   viewCount?: number
   publishedAt?: Date | string | null
   createdAt?: Date | string
@@ -2829,7 +2763,6 @@ export type WikiPageUpdateWithoutCharacterInput = {
   spoilerLevel?: Prisma.EnumSpoilerLevelFieldUpdateOperationsInput | $Enums.SpoilerLevel
   seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  canonicalUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   viewCount?: Prisma.IntFieldUpdateOperationsInput | number
   publishedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2866,7 +2799,6 @@ export type WikiPageUncheckedUpdateWithoutCharacterInput = {
   spoilerLevel?: Prisma.EnumSpoilerLevelFieldUpdateOperationsInput | $Enums.SpoilerLevel
   seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  canonicalUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   viewCount?: Prisma.IntFieldUpdateOperationsInput | number
   publishedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2897,7 +2829,6 @@ export type WikiPageUncheckedUpdateManyWithoutCharacterInput = {
   spoilerLevel?: Prisma.EnumSpoilerLevelFieldUpdateOperationsInput | $Enums.SpoilerLevel
   seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  canonicalUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   viewCount?: Prisma.IntFieldUpdateOperationsInput | number
   publishedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2923,7 +2854,6 @@ export type WikiPageCreateManyArtifactInput = {
   spoilerLevel?: $Enums.SpoilerLevel
   seoTitle?: string | null
   seoDescription?: string | null
-  canonicalUrl?: string | null
   viewCount?: number
   publishedAt?: Date | string | null
   createdAt?: Date | string
@@ -2943,7 +2873,6 @@ export type WikiPageUpdateWithoutArtifactInput = {
   spoilerLevel?: Prisma.EnumSpoilerLevelFieldUpdateOperationsInput | $Enums.SpoilerLevel
   seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  canonicalUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   viewCount?: Prisma.IntFieldUpdateOperationsInput | number
   publishedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2980,7 +2909,6 @@ export type WikiPageUncheckedUpdateWithoutArtifactInput = {
   spoilerLevel?: Prisma.EnumSpoilerLevelFieldUpdateOperationsInput | $Enums.SpoilerLevel
   seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  canonicalUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   viewCount?: Prisma.IntFieldUpdateOperationsInput | number
   publishedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -3011,7 +2939,6 @@ export type WikiPageUncheckedUpdateManyWithoutArtifactInput = {
   spoilerLevel?: Prisma.EnumSpoilerLevelFieldUpdateOperationsInput | $Enums.SpoilerLevel
   seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  canonicalUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   viewCount?: Prisma.IntFieldUpdateOperationsInput | number
   publishedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -3037,7 +2964,6 @@ export type WikiPageCreateManySkillInput = {
   spoilerLevel?: $Enums.SpoilerLevel
   seoTitle?: string | null
   seoDescription?: string | null
-  canonicalUrl?: string | null
   viewCount?: number
   publishedAt?: Date | string | null
   createdAt?: Date | string
@@ -3057,7 +2983,6 @@ export type WikiPageUpdateWithoutSkillInput = {
   spoilerLevel?: Prisma.EnumSpoilerLevelFieldUpdateOperationsInput | $Enums.SpoilerLevel
   seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  canonicalUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   viewCount?: Prisma.IntFieldUpdateOperationsInput | number
   publishedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -3094,7 +3019,6 @@ export type WikiPageUncheckedUpdateWithoutSkillInput = {
   spoilerLevel?: Prisma.EnumSpoilerLevelFieldUpdateOperationsInput | $Enums.SpoilerLevel
   seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  canonicalUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   viewCount?: Prisma.IntFieldUpdateOperationsInput | number
   publishedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -3125,7 +3049,6 @@ export type WikiPageUncheckedUpdateManyWithoutSkillInput = {
   spoilerLevel?: Prisma.EnumSpoilerLevelFieldUpdateOperationsInput | $Enums.SpoilerLevel
   seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  canonicalUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   viewCount?: Prisma.IntFieldUpdateOperationsInput | number
   publishedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -3151,7 +3074,6 @@ export type WikiPageCreateManyFactionInput = {
   spoilerLevel?: $Enums.SpoilerLevel
   seoTitle?: string | null
   seoDescription?: string | null
-  canonicalUrl?: string | null
   viewCount?: number
   publishedAt?: Date | string | null
   createdAt?: Date | string
@@ -3171,7 +3093,6 @@ export type WikiPageUpdateWithoutFactionInput = {
   spoilerLevel?: Prisma.EnumSpoilerLevelFieldUpdateOperationsInput | $Enums.SpoilerLevel
   seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  canonicalUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   viewCount?: Prisma.IntFieldUpdateOperationsInput | number
   publishedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -3208,7 +3129,6 @@ export type WikiPageUncheckedUpdateWithoutFactionInput = {
   spoilerLevel?: Prisma.EnumSpoilerLevelFieldUpdateOperationsInput | $Enums.SpoilerLevel
   seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  canonicalUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   viewCount?: Prisma.IntFieldUpdateOperationsInput | number
   publishedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -3239,7 +3159,6 @@ export type WikiPageUncheckedUpdateManyWithoutFactionInput = {
   spoilerLevel?: Prisma.EnumSpoilerLevelFieldUpdateOperationsInput | $Enums.SpoilerLevel
   seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  canonicalUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   viewCount?: Prisma.IntFieldUpdateOperationsInput | number
   publishedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -3265,7 +3184,6 @@ export type WikiPageCreateManyTermInput = {
   spoilerLevel?: $Enums.SpoilerLevel
   seoTitle?: string | null
   seoDescription?: string | null
-  canonicalUrl?: string | null
   viewCount?: number
   publishedAt?: Date | string | null
   createdAt?: Date | string
@@ -3285,7 +3203,6 @@ export type WikiPageUpdateWithoutTermInput = {
   spoilerLevel?: Prisma.EnumSpoilerLevelFieldUpdateOperationsInput | $Enums.SpoilerLevel
   seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  canonicalUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   viewCount?: Prisma.IntFieldUpdateOperationsInput | number
   publishedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -3322,7 +3239,6 @@ export type WikiPageUncheckedUpdateWithoutTermInput = {
   spoilerLevel?: Prisma.EnumSpoilerLevelFieldUpdateOperationsInput | $Enums.SpoilerLevel
   seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  canonicalUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   viewCount?: Prisma.IntFieldUpdateOperationsInput | number
   publishedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -3353,7 +3269,6 @@ export type WikiPageUncheckedUpdateManyWithoutTermInput = {
   spoilerLevel?: Prisma.EnumSpoilerLevelFieldUpdateOperationsInput | $Enums.SpoilerLevel
   seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  canonicalUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   viewCount?: Prisma.IntFieldUpdateOperationsInput | number
   publishedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -3447,7 +3362,6 @@ export type WikiPageSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs
   spoilerLevel?: boolean
   seoTitle?: boolean
   seoDescription?: boolean
-  canonicalUrl?: boolean
   viewCount?: boolean
   publishedAt?: boolean
   createdAt?: boolean
@@ -3487,7 +3401,6 @@ export type WikiPageSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exte
   spoilerLevel?: boolean
   seoTitle?: boolean
   seoDescription?: boolean
-  canonicalUrl?: boolean
   viewCount?: boolean
   publishedAt?: boolean
   createdAt?: boolean
@@ -3521,7 +3434,6 @@ export type WikiPageSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exte
   spoilerLevel?: boolean
   seoTitle?: boolean
   seoDescription?: boolean
-  canonicalUrl?: boolean
   viewCount?: boolean
   publishedAt?: boolean
   createdAt?: boolean
@@ -3555,14 +3467,13 @@ export type WikiPageSelectScalar = {
   spoilerLevel?: boolean
   seoTitle?: boolean
   seoDescription?: boolean
-  canonicalUrl?: boolean
   viewCount?: boolean
   publishedAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type WikiPageOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "title" | "slug" | "excerpt" | "type" | "status" | "coverUrl" | "workId" | "characterId" | "artifactId" | "skillId" | "factionId" | "termId" | "authorId" | "contentMd" | "hasSpoiler" | "spoilerLevel" | "seoTitle" | "seoDescription" | "canonicalUrl" | "viewCount" | "publishedAt" | "createdAt" | "updatedAt", ExtArgs["result"]["wikiPage"]>
+export type WikiPageOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "title" | "slug" | "excerpt" | "type" | "status" | "coverUrl" | "workId" | "characterId" | "artifactId" | "skillId" | "factionId" | "termId" | "authorId" | "contentMd" | "hasSpoiler" | "spoilerLevel" | "seoTitle" | "seoDescription" | "viewCount" | "publishedAt" | "createdAt" | "updatedAt", ExtArgs["result"]["wikiPage"]>
 export type WikiPageInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   work?: boolean | Prisma.WikiPage$workArgs<ExtArgs>
   character?: boolean | Prisma.WikiPage$characterArgs<ExtArgs>
@@ -3633,7 +3544,6 @@ export type $WikiPagePayload<ExtArgs extends runtime.Types.Extensions.InternalAr
     spoilerLevel: $Enums.SpoilerLevel
     seoTitle: string | null
     seoDescription: string | null
-    canonicalUrl: string | null
     viewCount: number
     publishedAt: Date | null
     createdAt: Date
@@ -4092,7 +4002,6 @@ export interface WikiPageFieldRefs {
   readonly spoilerLevel: Prisma.FieldRef<"WikiPage", 'SpoilerLevel'>
   readonly seoTitle: Prisma.FieldRef<"WikiPage", 'String'>
   readonly seoDescription: Prisma.FieldRef<"WikiPage", 'String'>
-  readonly canonicalUrl: Prisma.FieldRef<"WikiPage", 'String'>
   readonly viewCount: Prisma.FieldRef<"WikiPage", 'Int'>
   readonly publishedAt: Prisma.FieldRef<"WikiPage", 'DateTime'>
   readonly createdAt: Prisma.FieldRef<"WikiPage", 'DateTime'>

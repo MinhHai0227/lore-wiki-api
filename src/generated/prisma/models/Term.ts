@@ -44,6 +44,8 @@ export type TermMinAggregateOutputType = {
   type: $Enums.TermType | null
   description: string | null
   levelOrder: number | null
+  seoTitle: string | null
+  seoDescription: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -58,6 +60,8 @@ export type TermMaxAggregateOutputType = {
   type: $Enums.TermType | null
   description: string | null
   levelOrder: number | null
+  seoTitle: string | null
+  seoDescription: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -73,6 +77,8 @@ export type TermCountAggregateOutputType = {
   type: number
   description: number
   levelOrder: number
+  seoTitle: number
+  seoDescription: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -97,6 +103,8 @@ export type TermMinAggregateInputType = {
   type?: true
   description?: true
   levelOrder?: true
+  seoTitle?: true
+  seoDescription?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -111,6 +119,8 @@ export type TermMaxAggregateInputType = {
   type?: true
   description?: true
   levelOrder?: true
+  seoTitle?: true
+  seoDescription?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -126,6 +136,8 @@ export type TermCountAggregateInputType = {
   type?: true
   description?: true
   levelOrder?: true
+  seoTitle?: true
+  seoDescription?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -228,6 +240,8 @@ export type TermGroupByOutputType = {
   type: $Enums.TermType
   description: string | null
   levelOrder: number | null
+  seoTitle: string | null
+  seoDescription: string | null
   createdAt: Date
   updatedAt: Date
   _count: TermCountAggregateOutputType | null
@@ -266,6 +280,8 @@ export type TermWhereInput = {
   type?: Prisma.EnumTermTypeFilter<"Term"> | $Enums.TermType
   description?: Prisma.StringNullableFilter<"Term"> | string | null
   levelOrder?: Prisma.IntNullableFilter<"Term"> | number | null
+  seoTitle?: Prisma.StringNullableFilter<"Term"> | string | null
+  seoDescription?: Prisma.StringNullableFilter<"Term"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Term"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Term"> | Date | string
   work?: Prisma.XOR<Prisma.WorkNullableScalarRelationFilter, Prisma.WorkWhereInput> | null
@@ -284,6 +300,8 @@ export type TermOrderByWithRelationInput = {
   type?: Prisma.SortOrder
   description?: Prisma.SortOrderInput | Prisma.SortOrder
   levelOrder?: Prisma.SortOrderInput | Prisma.SortOrder
+  seoTitle?: Prisma.SortOrderInput | Prisma.SortOrder
+  seoDescription?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   work?: Prisma.WorkOrderByWithRelationInput
@@ -305,6 +323,8 @@ export type TermWhereUniqueInput = Prisma.AtLeast<{
   type?: Prisma.EnumTermTypeFilter<"Term"> | $Enums.TermType
   description?: Prisma.StringNullableFilter<"Term"> | string | null
   levelOrder?: Prisma.IntNullableFilter<"Term"> | number | null
+  seoTitle?: Prisma.StringNullableFilter<"Term"> | string | null
+  seoDescription?: Prisma.StringNullableFilter<"Term"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Term"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Term"> | Date | string
   work?: Prisma.XOR<Prisma.WorkNullableScalarRelationFilter, Prisma.WorkWhereInput> | null
@@ -323,6 +343,8 @@ export type TermOrderByWithAggregationInput = {
   type?: Prisma.SortOrder
   description?: Prisma.SortOrderInput | Prisma.SortOrder
   levelOrder?: Prisma.SortOrderInput | Prisma.SortOrder
+  seoTitle?: Prisma.SortOrderInput | Prisma.SortOrder
+  seoDescription?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.TermCountOrderByAggregateInput
@@ -346,6 +368,8 @@ export type TermScalarWhereWithAggregatesInput = {
   type?: Prisma.EnumTermTypeWithAggregatesFilter<"Term"> | $Enums.TermType
   description?: Prisma.StringNullableWithAggregatesFilter<"Term"> | string | null
   levelOrder?: Prisma.IntNullableWithAggregatesFilter<"Term"> | number | null
+  seoTitle?: Prisma.StringNullableWithAggregatesFilter<"Term"> | string | null
+  seoDescription?: Prisma.StringNullableWithAggregatesFilter<"Term"> | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Term"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Term"> | Date | string
 }
@@ -360,6 +384,8 @@ export type TermCreateInput = {
   type?: $Enums.TermType
   description?: string | null
   levelOrder?: number | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   work?: Prisma.WorkCreateNestedOneWithoutTermsInput
@@ -378,6 +404,8 @@ export type TermUncheckedCreateInput = {
   type?: $Enums.TermType
   description?: string | null
   levelOrder?: number | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   wikiPages?: Prisma.WikiPageUncheckedCreateNestedManyWithoutTermInput
@@ -394,6 +422,8 @@ export type TermUpdateInput = {
   type?: Prisma.EnumTermTypeFieldUpdateOperationsInput | $Enums.TermType
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   levelOrder?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   work?: Prisma.WorkUpdateOneWithoutTermsNestedInput
@@ -412,6 +442,8 @@ export type TermUncheckedUpdateInput = {
   type?: Prisma.EnumTermTypeFieldUpdateOperationsInput | $Enums.TermType
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   levelOrder?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   wikiPages?: Prisma.WikiPageUncheckedUpdateManyWithoutTermNestedInput
@@ -429,6 +461,8 @@ export type TermCreateManyInput = {
   type?: $Enums.TermType
   description?: string | null
   levelOrder?: number | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -443,6 +477,8 @@ export type TermUpdateManyMutationInput = {
   type?: Prisma.EnumTermTypeFieldUpdateOperationsInput | $Enums.TermType
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   levelOrder?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -458,6 +494,8 @@ export type TermUncheckedUpdateManyInput = {
   type?: Prisma.EnumTermTypeFieldUpdateOperationsInput | $Enums.TermType
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   levelOrder?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -483,6 +521,8 @@ export type TermCountOrderByAggregateInput = {
   type?: Prisma.SortOrder
   description?: Prisma.SortOrder
   levelOrder?: Prisma.SortOrder
+  seoTitle?: Prisma.SortOrder
+  seoDescription?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -501,6 +541,8 @@ export type TermMaxOrderByAggregateInput = {
   type?: Prisma.SortOrder
   description?: Prisma.SortOrder
   levelOrder?: Prisma.SortOrder
+  seoTitle?: Prisma.SortOrder
+  seoDescription?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -515,6 +557,8 @@ export type TermMinOrderByAggregateInput = {
   type?: Prisma.SortOrder
   description?: Prisma.SortOrder
   levelOrder?: Prisma.SortOrder
+  seoTitle?: Prisma.SortOrder
+  seoDescription?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -625,6 +669,8 @@ export type TermCreateWithoutWorkInput = {
   type?: $Enums.TermType
   description?: string | null
   levelOrder?: number | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   wikiPages?: Prisma.WikiPageCreateNestedManyWithoutTermInput
@@ -641,6 +687,8 @@ export type TermUncheckedCreateWithoutWorkInput = {
   type?: $Enums.TermType
   description?: string | null
   levelOrder?: number | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   wikiPages?: Prisma.WikiPageUncheckedCreateNestedManyWithoutTermInput
@@ -687,6 +735,8 @@ export type TermScalarWhereInput = {
   type?: Prisma.EnumTermTypeFilter<"Term"> | $Enums.TermType
   description?: Prisma.StringNullableFilter<"Term"> | string | null
   levelOrder?: Prisma.IntNullableFilter<"Term"> | number | null
+  seoTitle?: Prisma.StringNullableFilter<"Term"> | string | null
+  seoDescription?: Prisma.StringNullableFilter<"Term"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Term"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Term"> | Date | string
 }
@@ -701,6 +751,8 @@ export type TermCreateWithoutWikiPagesInput = {
   type?: $Enums.TermType
   description?: string | null
   levelOrder?: number | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   work?: Prisma.WorkCreateNestedOneWithoutTermsInput
@@ -718,6 +770,8 @@ export type TermUncheckedCreateWithoutWikiPagesInput = {
   type?: $Enums.TermType
   description?: string | null
   levelOrder?: number | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   mediaAssets?: Prisma.MediaAssetUncheckedCreateNestedManyWithoutTermInput
@@ -749,6 +803,8 @@ export type TermUpdateWithoutWikiPagesInput = {
   type?: Prisma.EnumTermTypeFieldUpdateOperationsInput | $Enums.TermType
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   levelOrder?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   work?: Prisma.WorkUpdateOneWithoutTermsNestedInput
@@ -766,6 +822,8 @@ export type TermUncheckedUpdateWithoutWikiPagesInput = {
   type?: Prisma.EnumTermTypeFieldUpdateOperationsInput | $Enums.TermType
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   levelOrder?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   mediaAssets?: Prisma.MediaAssetUncheckedUpdateManyWithoutTermNestedInput
@@ -781,6 +839,8 @@ export type TermCreateWithoutMediaAssetsInput = {
   type?: $Enums.TermType
   description?: string | null
   levelOrder?: number | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   work?: Prisma.WorkCreateNestedOneWithoutTermsInput
@@ -798,6 +858,8 @@ export type TermUncheckedCreateWithoutMediaAssetsInput = {
   type?: $Enums.TermType
   description?: string | null
   levelOrder?: number | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   wikiPages?: Prisma.WikiPageUncheckedCreateNestedManyWithoutTermInput
@@ -829,6 +891,8 @@ export type TermUpdateWithoutMediaAssetsInput = {
   type?: Prisma.EnumTermTypeFieldUpdateOperationsInput | $Enums.TermType
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   levelOrder?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   work?: Prisma.WorkUpdateOneWithoutTermsNestedInput
@@ -846,6 +910,8 @@ export type TermUncheckedUpdateWithoutMediaAssetsInput = {
   type?: Prisma.EnumTermTypeFieldUpdateOperationsInput | $Enums.TermType
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   levelOrder?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   wikiPages?: Prisma.WikiPageUncheckedUpdateManyWithoutTermNestedInput
@@ -861,6 +927,8 @@ export type TermCreateManyWorkInput = {
   type?: $Enums.TermType
   description?: string | null
   levelOrder?: number | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -875,6 +943,8 @@ export type TermUpdateWithoutWorkInput = {
   type?: Prisma.EnumTermTypeFieldUpdateOperationsInput | $Enums.TermType
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   levelOrder?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   wikiPages?: Prisma.WikiPageUpdateManyWithoutTermNestedInput
@@ -891,6 +961,8 @@ export type TermUncheckedUpdateWithoutWorkInput = {
   type?: Prisma.EnumTermTypeFieldUpdateOperationsInput | $Enums.TermType
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   levelOrder?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   wikiPages?: Prisma.WikiPageUncheckedUpdateManyWithoutTermNestedInput
@@ -907,6 +979,8 @@ export type TermUncheckedUpdateManyWithoutWorkInput = {
   type?: Prisma.EnumTermTypeFieldUpdateOperationsInput | $Enums.TermType
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   levelOrder?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -962,6 +1036,8 @@ export type TermSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   type?: boolean
   description?: boolean
   levelOrder?: boolean
+  seoTitle?: boolean
+  seoDescription?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   work?: boolean | Prisma.Term$workArgs<ExtArgs>
@@ -981,6 +1057,8 @@ export type TermSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   type?: boolean
   description?: boolean
   levelOrder?: boolean
+  seoTitle?: boolean
+  seoDescription?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   work?: boolean | Prisma.Term$workArgs<ExtArgs>
@@ -997,6 +1075,8 @@ export type TermSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   type?: boolean
   description?: boolean
   levelOrder?: boolean
+  seoTitle?: boolean
+  seoDescription?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   work?: boolean | Prisma.Term$workArgs<ExtArgs>
@@ -1013,11 +1093,13 @@ export type TermSelectScalar = {
   type?: boolean
   description?: boolean
   levelOrder?: boolean
+  seoTitle?: boolean
+  seoDescription?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type TermOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "nameVi" | "nameOriginal" | "nameEnglish" | "aliases" | "slug" | "workId" | "type" | "description" | "levelOrder" | "createdAt" | "updatedAt", ExtArgs["result"]["term"]>
+export type TermOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "nameVi" | "nameOriginal" | "nameEnglish" | "aliases" | "slug" | "workId" | "type" | "description" | "levelOrder" | "seoTitle" | "seoDescription" | "createdAt" | "updatedAt", ExtArgs["result"]["term"]>
 export type TermInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   work?: boolean | Prisma.Term$workArgs<ExtArgs>
   wikiPages?: boolean | Prisma.Term$wikiPagesArgs<ExtArgs>
@@ -1049,6 +1131,8 @@ export type $TermPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     type: $Enums.TermType
     description: string | null
     levelOrder: number | null
+    seoTitle: string | null
+    seoDescription: string | null
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["term"]>
@@ -1487,6 +1571,8 @@ export interface TermFieldRefs {
   readonly type: Prisma.FieldRef<"Term", 'TermType'>
   readonly description: Prisma.FieldRef<"Term", 'String'>
   readonly levelOrder: Prisma.FieldRef<"Term", 'Int'>
+  readonly seoTitle: Prisma.FieldRef<"Term", 'String'>
+  readonly seoDescription: Prisma.FieldRef<"Term", 'String'>
   readonly createdAt: Prisma.FieldRef<"Term", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Term", 'DateTime'>
 }

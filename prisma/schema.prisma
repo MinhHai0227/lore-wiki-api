@@ -357,6 +357,9 @@ model Work {
   description String?
   synopsis    String?
 
+  seoTitle       String? @map("seo_title")
+  seoDescription String? @map("seo_description")
+
   posterUrl String? @map("poster_url")
   bannerUrl String? @map("banner_url")
 
@@ -447,6 +450,9 @@ model Character {
   appearance  String?
   personality String?
   lifeStory   String? @map("life_story")
+
+  seoTitle       String? @map("seo_title")
+  seoDescription String? @map("seo_description")
 
   avatarUrl String? @map("avatar_url")
   coverUrl  String? @map("cover_url")
@@ -542,6 +548,9 @@ model Artifact {
   abilities   String?
   weakness    String?
   limitation  String?
+
+  seoTitle       String? @map("seo_title")
+  seoDescription String? @map("seo_description")
 
   firstAppearance String? @map("first_appearance")
   currentStatus   String? @map("current_status")
@@ -641,6 +650,9 @@ model Skill {
   effect      String?
   limitation  String?
 
+  seoTitle       String? @map("seo_title")
+  seoDescription String? @map("seo_description")
+
   characters  CharacterSkill[]
   wikiPages   WikiPage[]
   mediaAssets MediaAsset[]
@@ -692,6 +704,9 @@ model Faction {
   leaderName   String?     @map("leader_name")
   headquarters String?
 
+  seoTitle       String? @map("seo_title")
+  seoDescription String? @map("seo_description")
+
   characters     CharacterFaction[]
   timelineEvents TimelineEvent[]
   wikiPages      WikiPage[]
@@ -742,6 +757,9 @@ model Term {
   type        TermType @default(OTHER) @map("term_type")
   description String?
   levelOrder  Int?     @map("level_order")
+
+  seoTitle       String? @map("seo_title")
+  seoDescription String? @map("seo_description")
 
   wikiPages   WikiPage[]
   mediaAssets MediaAsset[]
@@ -802,7 +820,6 @@ model WikiPage {
 
   seoTitle       String? @map("seo_title")
   seoDescription String? @map("seo_description")
-  canonicalUrl   String? @map("canonical_url")
 
   viewCount   Int       @default(0) @map("view_count")
   publishedAt DateTime? @map("published_at")

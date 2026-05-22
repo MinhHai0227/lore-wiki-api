@@ -51,6 +51,8 @@ export type CharacterMinAggregateOutputType = {
   appearance: string | null
   personality: string | null
   lifeStory: string | null
+  seoTitle: string | null
+  seoDescription: string | null
   avatarUrl: string | null
   coverUrl: string | null
   isSpoilerHeavy: boolean | null
@@ -76,6 +78,8 @@ export type CharacterMaxAggregateOutputType = {
   appearance: string | null
   personality: string | null
   lifeStory: string | null
+  seoTitle: string | null
+  seoDescription: string | null
   avatarUrl: string | null
   coverUrl: string | null
   isSpoilerHeavy: boolean | null
@@ -103,6 +107,8 @@ export type CharacterCountAggregateOutputType = {
   appearance: number
   personality: number
   lifeStory: number
+  seoTitle: number
+  seoDescription: number
   avatarUrl: number
   coverUrl: number
   isSpoilerHeavy: number
@@ -138,6 +144,8 @@ export type CharacterMinAggregateInputType = {
   appearance?: true
   personality?: true
   lifeStory?: true
+  seoTitle?: true
+  seoDescription?: true
   avatarUrl?: true
   coverUrl?: true
   isSpoilerHeavy?: true
@@ -163,6 +171,8 @@ export type CharacterMaxAggregateInputType = {
   appearance?: true
   personality?: true
   lifeStory?: true
+  seoTitle?: true
+  seoDescription?: true
   avatarUrl?: true
   coverUrl?: true
   isSpoilerHeavy?: true
@@ -190,6 +200,8 @@ export type CharacterCountAggregateInputType = {
   appearance?: true
   personality?: true
   lifeStory?: true
+  seoTitle?: true
+  seoDescription?: true
   avatarUrl?: true
   coverUrl?: true
   isSpoilerHeavy?: true
@@ -304,6 +316,8 @@ export type CharacterGroupByOutputType = {
   appearance: string | null
   personality: string | null
   lifeStory: string | null
+  seoTitle: string | null
+  seoDescription: string | null
   avatarUrl: string | null
   coverUrl: string | null
   isSpoilerHeavy: boolean
@@ -354,6 +368,8 @@ export type CharacterWhereInput = {
   appearance?: Prisma.StringNullableFilter<"Character"> | string | null
   personality?: Prisma.StringNullableFilter<"Character"> | string | null
   lifeStory?: Prisma.StringNullableFilter<"Character"> | string | null
+  seoTitle?: Prisma.StringNullableFilter<"Character"> | string | null
+  seoDescription?: Prisma.StringNullableFilter<"Character"> | string | null
   avatarUrl?: Prisma.StringNullableFilter<"Character"> | string | null
   coverUrl?: Prisma.StringNullableFilter<"Character"> | string | null
   isSpoilerHeavy?: Prisma.BoolFilter<"Character"> | boolean
@@ -390,6 +406,8 @@ export type CharacterOrderByWithRelationInput = {
   appearance?: Prisma.SortOrderInput | Prisma.SortOrder
   personality?: Prisma.SortOrderInput | Prisma.SortOrder
   lifeStory?: Prisma.SortOrderInput | Prisma.SortOrder
+  seoTitle?: Prisma.SortOrderInput | Prisma.SortOrder
+  seoDescription?: Prisma.SortOrderInput | Prisma.SortOrder
   avatarUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   coverUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   isSpoilerHeavy?: Prisma.SortOrder
@@ -429,6 +447,8 @@ export type CharacterWhereUniqueInput = Prisma.AtLeast<{
   appearance?: Prisma.StringNullableFilter<"Character"> | string | null
   personality?: Prisma.StringNullableFilter<"Character"> | string | null
   lifeStory?: Prisma.StringNullableFilter<"Character"> | string | null
+  seoTitle?: Prisma.StringNullableFilter<"Character"> | string | null
+  seoDescription?: Prisma.StringNullableFilter<"Character"> | string | null
   avatarUrl?: Prisma.StringNullableFilter<"Character"> | string | null
   coverUrl?: Prisma.StringNullableFilter<"Character"> | string | null
   isSpoilerHeavy?: Prisma.BoolFilter<"Character"> | boolean
@@ -465,6 +485,8 @@ export type CharacterOrderByWithAggregationInput = {
   appearance?: Prisma.SortOrderInput | Prisma.SortOrder
   personality?: Prisma.SortOrderInput | Prisma.SortOrder
   lifeStory?: Prisma.SortOrderInput | Prisma.SortOrder
+  seoTitle?: Prisma.SortOrderInput | Prisma.SortOrder
+  seoDescription?: Prisma.SortOrderInput | Prisma.SortOrder
   avatarUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   coverUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   isSpoilerHeavy?: Prisma.SortOrder
@@ -500,6 +522,8 @@ export type CharacterScalarWhereWithAggregatesInput = {
   appearance?: Prisma.StringNullableWithAggregatesFilter<"Character"> | string | null
   personality?: Prisma.StringNullableWithAggregatesFilter<"Character"> | string | null
   lifeStory?: Prisma.StringNullableWithAggregatesFilter<"Character"> | string | null
+  seoTitle?: Prisma.StringNullableWithAggregatesFilter<"Character"> | string | null
+  seoDescription?: Prisma.StringNullableWithAggregatesFilter<"Character"> | string | null
   avatarUrl?: Prisma.StringNullableWithAggregatesFilter<"Character"> | string | null
   coverUrl?: Prisma.StringNullableWithAggregatesFilter<"Character"> | string | null
   isSpoilerHeavy?: Prisma.BoolWithAggregatesFilter<"Character"> | boolean
@@ -527,6 +551,8 @@ export type CharacterCreateInput = {
   appearance?: string | null
   personality?: string | null
   lifeStory?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   avatarUrl?: string | null
   coverUrl?: string | null
   isSpoilerHeavy?: boolean
@@ -563,6 +589,8 @@ export type CharacterUncheckedCreateInput = {
   appearance?: string | null
   personality?: string | null
   lifeStory?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   avatarUrl?: string | null
   coverUrl?: string | null
   isSpoilerHeavy?: boolean
@@ -599,6 +627,8 @@ export type CharacterUpdateInput = {
   appearance?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   personality?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lifeStory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   coverUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isSpoilerHeavy?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -635,6 +665,8 @@ export type CharacterUncheckedUpdateInput = {
   appearance?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   personality?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lifeStory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   coverUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isSpoilerHeavy?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -671,6 +703,8 @@ export type CharacterCreateManyInput = {
   appearance?: string | null
   personality?: string | null
   lifeStory?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   avatarUrl?: string | null
   coverUrl?: string | null
   isSpoilerHeavy?: boolean
@@ -698,6 +732,8 @@ export type CharacterUpdateManyMutationInput = {
   appearance?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   personality?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lifeStory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   coverUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isSpoilerHeavy?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -725,6 +761,8 @@ export type CharacterUncheckedUpdateManyInput = {
   appearance?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   personality?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lifeStory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   coverUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isSpoilerHeavy?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -752,6 +790,8 @@ export type CharacterCountOrderByAggregateInput = {
   appearance?: Prisma.SortOrder
   personality?: Prisma.SortOrder
   lifeStory?: Prisma.SortOrder
+  seoTitle?: Prisma.SortOrder
+  seoDescription?: Prisma.SortOrder
   avatarUrl?: Prisma.SortOrder
   coverUrl?: Prisma.SortOrder
   isSpoilerHeavy?: Prisma.SortOrder
@@ -781,6 +821,8 @@ export type CharacterMaxOrderByAggregateInput = {
   appearance?: Prisma.SortOrder
   personality?: Prisma.SortOrder
   lifeStory?: Prisma.SortOrder
+  seoTitle?: Prisma.SortOrder
+  seoDescription?: Prisma.SortOrder
   avatarUrl?: Prisma.SortOrder
   coverUrl?: Prisma.SortOrder
   isSpoilerHeavy?: Prisma.SortOrder
@@ -806,6 +848,8 @@ export type CharacterMinOrderByAggregateInput = {
   appearance?: Prisma.SortOrder
   personality?: Prisma.SortOrder
   lifeStory?: Prisma.SortOrder
+  seoTitle?: Prisma.SortOrder
+  seoDescription?: Prisma.SortOrder
   avatarUrl?: Prisma.SortOrder
   coverUrl?: Prisma.SortOrder
   isSpoilerHeavy?: Prisma.SortOrder
@@ -1003,6 +1047,8 @@ export type CharacterCreateWithoutWorksInput = {
   appearance?: string | null
   personality?: string | null
   lifeStory?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   avatarUrl?: string | null
   coverUrl?: string | null
   isSpoilerHeavy?: boolean
@@ -1038,6 +1084,8 @@ export type CharacterUncheckedCreateWithoutWorksInput = {
   appearance?: string | null
   personality?: string | null
   lifeStory?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   avatarUrl?: string | null
   coverUrl?: string | null
   isSpoilerHeavy?: boolean
@@ -1089,6 +1137,8 @@ export type CharacterUpdateWithoutWorksInput = {
   appearance?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   personality?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lifeStory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   coverUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isSpoilerHeavy?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -1124,6 +1174,8 @@ export type CharacterUncheckedUpdateWithoutWorksInput = {
   appearance?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   personality?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lifeStory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   coverUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isSpoilerHeavy?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -1159,6 +1211,8 @@ export type CharacterCreateWithoutRelationsFromInput = {
   appearance?: string | null
   personality?: string | null
   lifeStory?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   avatarUrl?: string | null
   coverUrl?: string | null
   isSpoilerHeavy?: boolean
@@ -1194,6 +1248,8 @@ export type CharacterUncheckedCreateWithoutRelationsFromInput = {
   appearance?: string | null
   personality?: string | null
   lifeStory?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   avatarUrl?: string | null
   coverUrl?: string | null
   isSpoilerHeavy?: boolean
@@ -1234,6 +1290,8 @@ export type CharacterCreateWithoutRelationsToInput = {
   appearance?: string | null
   personality?: string | null
   lifeStory?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   avatarUrl?: string | null
   coverUrl?: string | null
   isSpoilerHeavy?: boolean
@@ -1269,6 +1327,8 @@ export type CharacterUncheckedCreateWithoutRelationsToInput = {
   appearance?: string | null
   personality?: string | null
   lifeStory?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   avatarUrl?: string | null
   coverUrl?: string | null
   isSpoilerHeavy?: boolean
@@ -1320,6 +1380,8 @@ export type CharacterUpdateWithoutRelationsFromInput = {
   appearance?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   personality?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lifeStory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   coverUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isSpoilerHeavy?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -1355,6 +1417,8 @@ export type CharacterUncheckedUpdateWithoutRelationsFromInput = {
   appearance?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   personality?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lifeStory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   coverUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isSpoilerHeavy?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -1401,6 +1465,8 @@ export type CharacterUpdateWithoutRelationsToInput = {
   appearance?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   personality?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lifeStory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   coverUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isSpoilerHeavy?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -1436,6 +1502,8 @@ export type CharacterUncheckedUpdateWithoutRelationsToInput = {
   appearance?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   personality?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lifeStory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   coverUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isSpoilerHeavy?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -1471,6 +1539,8 @@ export type CharacterCreateWithoutArtifactOwnersInput = {
   appearance?: string | null
   personality?: string | null
   lifeStory?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   avatarUrl?: string | null
   coverUrl?: string | null
   isSpoilerHeavy?: boolean
@@ -1506,6 +1576,8 @@ export type CharacterUncheckedCreateWithoutArtifactOwnersInput = {
   appearance?: string | null
   personality?: string | null
   lifeStory?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   avatarUrl?: string | null
   coverUrl?: string | null
   isSpoilerHeavy?: boolean
@@ -1557,6 +1629,8 @@ export type CharacterUpdateWithoutArtifactOwnersInput = {
   appearance?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   personality?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lifeStory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   coverUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isSpoilerHeavy?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -1592,6 +1666,8 @@ export type CharacterUncheckedUpdateWithoutArtifactOwnersInput = {
   appearance?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   personality?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lifeStory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   coverUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isSpoilerHeavy?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -1627,6 +1703,8 @@ export type CharacterCreateWithoutSkillsInput = {
   appearance?: string | null
   personality?: string | null
   lifeStory?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   avatarUrl?: string | null
   coverUrl?: string | null
   isSpoilerHeavy?: boolean
@@ -1662,6 +1740,8 @@ export type CharacterUncheckedCreateWithoutSkillsInput = {
   appearance?: string | null
   personality?: string | null
   lifeStory?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   avatarUrl?: string | null
   coverUrl?: string | null
   isSpoilerHeavy?: boolean
@@ -1713,6 +1793,8 @@ export type CharacterUpdateWithoutSkillsInput = {
   appearance?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   personality?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lifeStory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   coverUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isSpoilerHeavy?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -1748,6 +1830,8 @@ export type CharacterUncheckedUpdateWithoutSkillsInput = {
   appearance?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   personality?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lifeStory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   coverUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isSpoilerHeavy?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -1783,6 +1867,8 @@ export type CharacterCreateWithoutFactionsInput = {
   appearance?: string | null
   personality?: string | null
   lifeStory?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   avatarUrl?: string | null
   coverUrl?: string | null
   isSpoilerHeavy?: boolean
@@ -1818,6 +1904,8 @@ export type CharacterUncheckedCreateWithoutFactionsInput = {
   appearance?: string | null
   personality?: string | null
   lifeStory?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   avatarUrl?: string | null
   coverUrl?: string | null
   isSpoilerHeavy?: boolean
@@ -1869,6 +1957,8 @@ export type CharacterUpdateWithoutFactionsInput = {
   appearance?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   personality?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lifeStory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   coverUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isSpoilerHeavy?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -1904,6 +1994,8 @@ export type CharacterUncheckedUpdateWithoutFactionsInput = {
   appearance?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   personality?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lifeStory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   coverUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isSpoilerHeavy?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -1939,6 +2031,8 @@ export type CharacterCreateWithoutWikiPagesInput = {
   appearance?: string | null
   personality?: string | null
   lifeStory?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   avatarUrl?: string | null
   coverUrl?: string | null
   isSpoilerHeavy?: boolean
@@ -1974,6 +2068,8 @@ export type CharacterUncheckedCreateWithoutWikiPagesInput = {
   appearance?: string | null
   personality?: string | null
   lifeStory?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   avatarUrl?: string | null
   coverUrl?: string | null
   isSpoilerHeavy?: boolean
@@ -2025,6 +2121,8 @@ export type CharacterUpdateWithoutWikiPagesInput = {
   appearance?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   personality?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lifeStory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   coverUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isSpoilerHeavy?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -2060,6 +2158,8 @@ export type CharacterUncheckedUpdateWithoutWikiPagesInput = {
   appearance?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   personality?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lifeStory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   coverUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isSpoilerHeavy?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -2095,6 +2195,8 @@ export type CharacterCreateWithoutTimelineEventsInput = {
   appearance?: string | null
   personality?: string | null
   lifeStory?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   avatarUrl?: string | null
   coverUrl?: string | null
   isSpoilerHeavy?: boolean
@@ -2130,6 +2232,8 @@ export type CharacterUncheckedCreateWithoutTimelineEventsInput = {
   appearance?: string | null
   personality?: string | null
   lifeStory?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   avatarUrl?: string | null
   coverUrl?: string | null
   isSpoilerHeavy?: boolean
@@ -2181,6 +2285,8 @@ export type CharacterUpdateWithoutTimelineEventsInput = {
   appearance?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   personality?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lifeStory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   coverUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isSpoilerHeavy?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -2216,6 +2322,8 @@ export type CharacterUncheckedUpdateWithoutTimelineEventsInput = {
   appearance?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   personality?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lifeStory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   coverUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isSpoilerHeavy?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -2251,6 +2359,8 @@ export type CharacterCreateWithoutMediaAssetsInput = {
   appearance?: string | null
   personality?: string | null
   lifeStory?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   avatarUrl?: string | null
   coverUrl?: string | null
   isSpoilerHeavy?: boolean
@@ -2286,6 +2396,8 @@ export type CharacterUncheckedCreateWithoutMediaAssetsInput = {
   appearance?: string | null
   personality?: string | null
   lifeStory?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   avatarUrl?: string | null
   coverUrl?: string | null
   isSpoilerHeavy?: boolean
@@ -2337,6 +2449,8 @@ export type CharacterUpdateWithoutMediaAssetsInput = {
   appearance?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   personality?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lifeStory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   coverUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isSpoilerHeavy?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -2372,6 +2486,8 @@ export type CharacterUncheckedUpdateWithoutMediaAssetsInput = {
   appearance?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   personality?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lifeStory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   coverUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isSpoilerHeavy?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -2510,6 +2626,8 @@ export type CharacterSelect<ExtArgs extends runtime.Types.Extensions.InternalArg
   appearance?: boolean
   personality?: boolean
   lifeStory?: boolean
+  seoTitle?: boolean
+  seoDescription?: boolean
   avatarUrl?: boolean
   coverUrl?: boolean
   isSpoilerHeavy?: boolean
@@ -2547,6 +2665,8 @@ export type CharacterSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ext
   appearance?: boolean
   personality?: boolean
   lifeStory?: boolean
+  seoTitle?: boolean
+  seoDescription?: boolean
   avatarUrl?: boolean
   coverUrl?: boolean
   isSpoilerHeavy?: boolean
@@ -2574,6 +2694,8 @@ export type CharacterSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ext
   appearance?: boolean
   personality?: boolean
   lifeStory?: boolean
+  seoTitle?: boolean
+  seoDescription?: boolean
   avatarUrl?: boolean
   coverUrl?: boolean
   isSpoilerHeavy?: boolean
@@ -2601,6 +2723,8 @@ export type CharacterSelectScalar = {
   appearance?: boolean
   personality?: boolean
   lifeStory?: boolean
+  seoTitle?: boolean
+  seoDescription?: boolean
   avatarUrl?: boolean
   coverUrl?: boolean
   isSpoilerHeavy?: boolean
@@ -2609,7 +2733,7 @@ export type CharacterSelectScalar = {
   updatedAt?: boolean
 }
 
-export type CharacterOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "nameVi" | "nameOriginal" | "nameRomaji" | "nameEnglish" | "aliases" | "slug" | "gender" | "age" | "birthday" | "species" | "occupation" | "voiceActors" | "shortIntro" | "background" | "appearance" | "personality" | "lifeStory" | "avatarUrl" | "coverUrl" | "isSpoilerHeavy" | "viewCount" | "createdAt" | "updatedAt", ExtArgs["result"]["character"]>
+export type CharacterOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "nameVi" | "nameOriginal" | "nameRomaji" | "nameEnglish" | "aliases" | "slug" | "gender" | "age" | "birthday" | "species" | "occupation" | "voiceActors" | "shortIntro" | "background" | "appearance" | "personality" | "lifeStory" | "seoTitle" | "seoDescription" | "avatarUrl" | "coverUrl" | "isSpoilerHeavy" | "viewCount" | "createdAt" | "updatedAt", ExtArgs["result"]["character"]>
 export type CharacterInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   works?: boolean | Prisma.Character$worksArgs<ExtArgs>
   skills?: boolean | Prisma.Character$skillsArgs<ExtArgs>
@@ -2657,6 +2781,8 @@ export type $CharacterPayload<ExtArgs extends runtime.Types.Extensions.InternalA
     appearance: string | null
     personality: string | null
     lifeStory: string | null
+    seoTitle: string | null
+    seoDescription: string | null
     avatarUrl: string | null
     coverUrl: string | null
     isSpoilerHeavy: boolean
@@ -3113,6 +3239,8 @@ export interface CharacterFieldRefs {
   readonly appearance: Prisma.FieldRef<"Character", 'String'>
   readonly personality: Prisma.FieldRef<"Character", 'String'>
   readonly lifeStory: Prisma.FieldRef<"Character", 'String'>
+  readonly seoTitle: Prisma.FieldRef<"Character", 'String'>
+  readonly seoDescription: Prisma.FieldRef<"Character", 'String'>
   readonly avatarUrl: Prisma.FieldRef<"Character", 'String'>
   readonly coverUrl: Prisma.FieldRef<"Character", 'String'>
   readonly isSpoilerHeavy: Prisma.FieldRef<"Character", 'Boolean'>

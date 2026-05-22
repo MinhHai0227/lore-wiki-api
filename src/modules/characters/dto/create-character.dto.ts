@@ -1,18 +1,13 @@
 import { Transform, Type } from 'class-transformer';
 import {
   IsArray,
-  IsDateString,
-  IsEnum,
-  IsInt,
+  IsBoolean,
   IsOptional,
   IsString,
-  IsUrl,
   IsUUID,
   Matches,
   MaxLength,
-  Min,
 } from 'class-validator';
-import { WorkStatus, WorkType } from 'src/generated/prisma/client';
 
 function toStringArray(value: unknown) {
   if (value === undefined || value === null || value === '') {
@@ -38,123 +33,103 @@ function toStringArray(value: unknown) {
   }
 }
 
-export class CreateWorkDto {
+function toBoolean(value: unknown) {
+  if (value === undefined || value === null || value === '') {
+    return undefined;
+  }
+
+  if (typeof value === 'boolean') {
+    return value;
+  }
+
+  if (typeof value === 'string') {
+    return value === 'true';
+  }
+
+  return value;
+}
+
+export class CreateCharacterDto {
   @IsString()
   @MaxLength(255)
-  titleVi: string;
+  nameVi: string;
 
   @IsOptional()
   @IsString()
   @MaxLength(255)
-  titleOriginal?: string;
+  nameOriginal?: string;
 
   @IsOptional()
   @IsString()
   @MaxLength(255)
-  titleRomaji?: string;
+  nameRomaji?: string;
 
   @IsOptional()
   @IsString()
   @MaxLength(255)
-  titleEnglish?: string;
+  nameEnglish?: string;
 
   @IsOptional()
   @Transform(({ value }) => toStringArray(value))
   @IsArray()
   @IsString({ each: true })
-  otherNames?: string[];
+  aliases?: string[];
 
   @IsOptional()
   @IsString()
   @Matches(/^[a-z0-9]+(?:-[a-z0-9]+)*$/)
   slug?: string;
 
-  @IsEnum(WorkType)
-  type: WorkType;
-
-  @IsOptional()
-  @IsEnum(WorkStatus)
-  status?: WorkStatus;
-
   @IsOptional()
   @IsString()
-  @MaxLength(255)
-  authorName?: string;
-
-  @IsOptional()
-  @IsString()
-  @MaxLength(255)
-  artistName?: string;
-
-  @IsOptional()
-  @IsString()
-  @MaxLength(255)
-  scriptWriter?: string;
+  @MaxLength(100)
+  gender?: string;
 
   @IsOptional()
   @IsString()
   @MaxLength(100)
-  country?: string;
+  age?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(100)
+  birthday?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(100)
+  species?: string;
 
   @IsOptional()
   @IsString()
   @MaxLength(255)
-  originalName?: string;
+  occupation?: string;
+
+  @IsOptional()
+  @Transform(({ value }) => toStringArray(value))
+  @IsArray()
+  @IsString({ each: true })
+  voiceActors?: string[];
 
   @IsOptional()
   @IsString()
-  @MaxLength(255)
-  magazine?: string;
+  shortIntro?: string;
 
   @IsOptional()
   @IsString()
-  @MaxLength(255)
-  publisher?: string;
+  background?: string;
 
   @IsOptional()
   @IsString()
-  @MaxLength(255)
-  platform?: string;
-
-  @IsOptional()
-  @IsDateString()
-  startDate?: string;
-
-  @IsOptional()
-  @IsDateString()
-  endDate?: string;
-
-  @IsOptional()
-  @Type(() => Number)
-  @IsInt()
-  @Min(0)
-  chapterCount?: number;
-
-  @IsOptional()
-  @Type(() => Number)
-  @IsInt()
-  @Min(0)
-  episodeCount?: number;
-
-  @IsOptional()
-  @Type(() => Number)
-  @IsInt()
-  @Min(0)
-  volumeCount?: number;
-
-  @IsOptional()
-  @Type(() => Number)
-  @IsInt()
-  @Min(0)
-  seasonCount?: number;
+  appearance?: string;
 
   @IsOptional()
   @IsString()
-  description?: string;
+  personality?: string;
 
   @IsOptional()
   @IsString()
-  synopsis?: string;
+  lifeStory?: string;
 
   @IsOptional()
   @IsString()
@@ -167,23 +142,13 @@ export class CreateWorkDto {
   seoDescription?: string;
 
   @IsOptional()
-  @IsUrl()
-  @MaxLength(500)
-  officialUrl?: string;
-
-  @IsOptional()
-  @IsUrl()
-  @MaxLength(500)
-  legalReadUrl?: string;
-
-  @IsOptional()
-  @IsUrl()
-  @MaxLength(500)
-  legalWatchUrl?: string;
+  @Transform(({ value }) => toBoolean(value))
+  @IsBoolean()
+  isSpoilerHeavy?: boolean;
 
   @IsOptional()
   @Transform(({ value }) => toStringArray(value))
   @IsArray()
   @IsUUID(undefined, { each: true })
-  genreIds?: string[];
+  workIds?: string[];
 }

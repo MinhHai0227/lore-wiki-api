@@ -21,6 +21,7 @@ import { AuthModule } from './modules/auth/auth.module';
 import { UsersModule } from './modules/users/users.module';
 import { RolesGuard } from './common/guards/roles.guard';
 import { WorksModule } from './modules/works/works.module';
+import { CharactersModule } from './modules/characters/characters.module';
 
 @Module({
   imports: [
@@ -60,6 +61,7 @@ import { WorksModule } from './modules/works/works.module';
     AuthModule,
     UsersModule,
     WorksModule,
+    CharactersModule,
   ],
   controllers: [],
   providers: [

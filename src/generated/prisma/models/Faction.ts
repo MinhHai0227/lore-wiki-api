@@ -35,6 +35,8 @@ export type FactionMinAggregateOutputType = {
   description: string | null
   leaderName: string | null
   headquarters: string | null
+  seoTitle: string | null
+  seoDescription: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -50,6 +52,8 @@ export type FactionMaxAggregateOutputType = {
   description: string | null
   leaderName: string | null
   headquarters: string | null
+  seoTitle: string | null
+  seoDescription: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -66,6 +70,8 @@ export type FactionCountAggregateOutputType = {
   description: number
   leaderName: number
   headquarters: number
+  seoTitle: number
+  seoDescription: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -83,6 +89,8 @@ export type FactionMinAggregateInputType = {
   description?: true
   leaderName?: true
   headquarters?: true
+  seoTitle?: true
+  seoDescription?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -98,6 +106,8 @@ export type FactionMaxAggregateInputType = {
   description?: true
   leaderName?: true
   headquarters?: true
+  seoTitle?: true
+  seoDescription?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -114,6 +124,8 @@ export type FactionCountAggregateInputType = {
   description?: true
   leaderName?: true
   headquarters?: true
+  seoTitle?: true
+  seoDescription?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -203,6 +215,8 @@ export type FactionGroupByOutputType = {
   description: string | null
   leaderName: string | null
   headquarters: string | null
+  seoTitle: string | null
+  seoDescription: string | null
   createdAt: Date
   updatedAt: Date
   _count: FactionCountAggregateOutputType | null
@@ -240,6 +254,8 @@ export type FactionWhereInput = {
   description?: Prisma.StringNullableFilter<"Faction"> | string | null
   leaderName?: Prisma.StringNullableFilter<"Faction"> | string | null
   headquarters?: Prisma.StringNullableFilter<"Faction"> | string | null
+  seoTitle?: Prisma.StringNullableFilter<"Faction"> | string | null
+  seoDescription?: Prisma.StringNullableFilter<"Faction"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Faction"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Faction"> | Date | string
   work?: Prisma.XOR<Prisma.WorkNullableScalarRelationFilter, Prisma.WorkWhereInput> | null
@@ -261,6 +277,8 @@ export type FactionOrderByWithRelationInput = {
   description?: Prisma.SortOrderInput | Prisma.SortOrder
   leaderName?: Prisma.SortOrderInput | Prisma.SortOrder
   headquarters?: Prisma.SortOrderInput | Prisma.SortOrder
+  seoTitle?: Prisma.SortOrderInput | Prisma.SortOrder
+  seoDescription?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   work?: Prisma.WorkOrderByWithRelationInput
@@ -285,6 +303,8 @@ export type FactionWhereUniqueInput = Prisma.AtLeast<{
   description?: Prisma.StringNullableFilter<"Faction"> | string | null
   leaderName?: Prisma.StringNullableFilter<"Faction"> | string | null
   headquarters?: Prisma.StringNullableFilter<"Faction"> | string | null
+  seoTitle?: Prisma.StringNullableFilter<"Faction"> | string | null
+  seoDescription?: Prisma.StringNullableFilter<"Faction"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Faction"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Faction"> | Date | string
   work?: Prisma.XOR<Prisma.WorkNullableScalarRelationFilter, Prisma.WorkWhereInput> | null
@@ -306,6 +326,8 @@ export type FactionOrderByWithAggregationInput = {
   description?: Prisma.SortOrderInput | Prisma.SortOrder
   leaderName?: Prisma.SortOrderInput | Prisma.SortOrder
   headquarters?: Prisma.SortOrderInput | Prisma.SortOrder
+  seoTitle?: Prisma.SortOrderInput | Prisma.SortOrder
+  seoDescription?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.FactionCountOrderByAggregateInput
@@ -328,6 +350,8 @@ export type FactionScalarWhereWithAggregatesInput = {
   description?: Prisma.StringNullableWithAggregatesFilter<"Faction"> | string | null
   leaderName?: Prisma.StringNullableWithAggregatesFilter<"Faction"> | string | null
   headquarters?: Prisma.StringNullableWithAggregatesFilter<"Faction"> | string | null
+  seoTitle?: Prisma.StringNullableWithAggregatesFilter<"Faction"> | string | null
+  seoDescription?: Prisma.StringNullableWithAggregatesFilter<"Faction"> | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Faction"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Faction"> | Date | string
 }
@@ -343,6 +367,8 @@ export type FactionCreateInput = {
   description?: string | null
   leaderName?: string | null
   headquarters?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   work?: Prisma.WorkCreateNestedOneWithoutFactionsInput
@@ -364,6 +390,8 @@ export type FactionUncheckedCreateInput = {
   description?: string | null
   leaderName?: string | null
   headquarters?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   characters?: Prisma.CharacterFactionUncheckedCreateNestedManyWithoutFactionInput
@@ -383,6 +411,8 @@ export type FactionUpdateInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   leaderName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   headquarters?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   work?: Prisma.WorkUpdateOneWithoutFactionsNestedInput
@@ -404,6 +434,8 @@ export type FactionUncheckedUpdateInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   leaderName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   headquarters?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   characters?: Prisma.CharacterFactionUncheckedUpdateManyWithoutFactionNestedInput
@@ -424,6 +456,8 @@ export type FactionCreateManyInput = {
   description?: string | null
   leaderName?: string | null
   headquarters?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -439,6 +473,8 @@ export type FactionUpdateManyMutationInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   leaderName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   headquarters?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -455,6 +491,8 @@ export type FactionUncheckedUpdateManyInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   leaderName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   headquarters?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -481,6 +519,8 @@ export type FactionCountOrderByAggregateInput = {
   description?: Prisma.SortOrder
   leaderName?: Prisma.SortOrder
   headquarters?: Prisma.SortOrder
+  seoTitle?: Prisma.SortOrder
+  seoDescription?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -496,6 +536,8 @@ export type FactionMaxOrderByAggregateInput = {
   description?: Prisma.SortOrder
   leaderName?: Prisma.SortOrder
   headquarters?: Prisma.SortOrder
+  seoTitle?: Prisma.SortOrder
+  seoDescription?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -511,6 +553,8 @@ export type FactionMinOrderByAggregateInput = {
   description?: Prisma.SortOrder
   leaderName?: Prisma.SortOrder
   headquarters?: Prisma.SortOrder
+  seoTitle?: Prisma.SortOrder
+  seoDescription?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -653,6 +697,8 @@ export type FactionCreateWithoutWorkInput = {
   description?: string | null
   leaderName?: string | null
   headquarters?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   characters?: Prisma.CharacterFactionCreateNestedManyWithoutFactionInput
@@ -672,6 +718,8 @@ export type FactionUncheckedCreateWithoutWorkInput = {
   description?: string | null
   leaderName?: string | null
   headquarters?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   characters?: Prisma.CharacterFactionUncheckedCreateNestedManyWithoutFactionInput
@@ -721,6 +769,8 @@ export type FactionScalarWhereInput = {
   description?: Prisma.StringNullableFilter<"Faction"> | string | null
   leaderName?: Prisma.StringNullableFilter<"Faction"> | string | null
   headquarters?: Prisma.StringNullableFilter<"Faction"> | string | null
+  seoTitle?: Prisma.StringNullableFilter<"Faction"> | string | null
+  seoDescription?: Prisma.StringNullableFilter<"Faction"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Faction"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Faction"> | Date | string
 }
@@ -736,6 +786,8 @@ export type FactionCreateWithoutCharactersInput = {
   description?: string | null
   leaderName?: string | null
   headquarters?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   work?: Prisma.WorkCreateNestedOneWithoutFactionsInput
@@ -756,6 +808,8 @@ export type FactionUncheckedCreateWithoutCharactersInput = {
   description?: string | null
   leaderName?: string | null
   headquarters?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   timelineEvents?: Prisma.TimelineEventUncheckedCreateNestedManyWithoutFactionInput
@@ -790,6 +844,8 @@ export type FactionUpdateWithoutCharactersInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   leaderName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   headquarters?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   work?: Prisma.WorkUpdateOneWithoutFactionsNestedInput
@@ -810,6 +866,8 @@ export type FactionUncheckedUpdateWithoutCharactersInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   leaderName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   headquarters?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   timelineEvents?: Prisma.TimelineEventUncheckedUpdateManyWithoutFactionNestedInput
@@ -828,6 +886,8 @@ export type FactionCreateWithoutWikiPagesInput = {
   description?: string | null
   leaderName?: string | null
   headquarters?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   work?: Prisma.WorkCreateNestedOneWithoutFactionsInput
@@ -848,6 +908,8 @@ export type FactionUncheckedCreateWithoutWikiPagesInput = {
   description?: string | null
   leaderName?: string | null
   headquarters?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   characters?: Prisma.CharacterFactionUncheckedCreateNestedManyWithoutFactionInput
@@ -882,6 +944,8 @@ export type FactionUpdateWithoutWikiPagesInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   leaderName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   headquarters?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   work?: Prisma.WorkUpdateOneWithoutFactionsNestedInput
@@ -902,6 +966,8 @@ export type FactionUncheckedUpdateWithoutWikiPagesInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   leaderName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   headquarters?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   characters?: Prisma.CharacterFactionUncheckedUpdateManyWithoutFactionNestedInput
@@ -920,6 +986,8 @@ export type FactionCreateWithoutTimelineEventsInput = {
   description?: string | null
   leaderName?: string | null
   headquarters?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   work?: Prisma.WorkCreateNestedOneWithoutFactionsInput
@@ -940,6 +1008,8 @@ export type FactionUncheckedCreateWithoutTimelineEventsInput = {
   description?: string | null
   leaderName?: string | null
   headquarters?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   characters?: Prisma.CharacterFactionUncheckedCreateNestedManyWithoutFactionInput
@@ -974,6 +1044,8 @@ export type FactionUpdateWithoutTimelineEventsInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   leaderName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   headquarters?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   work?: Prisma.WorkUpdateOneWithoutFactionsNestedInput
@@ -994,6 +1066,8 @@ export type FactionUncheckedUpdateWithoutTimelineEventsInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   leaderName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   headquarters?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   characters?: Prisma.CharacterFactionUncheckedUpdateManyWithoutFactionNestedInput
@@ -1012,6 +1086,8 @@ export type FactionCreateWithoutMediaAssetsInput = {
   description?: string | null
   leaderName?: string | null
   headquarters?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   work?: Prisma.WorkCreateNestedOneWithoutFactionsInput
@@ -1032,6 +1108,8 @@ export type FactionUncheckedCreateWithoutMediaAssetsInput = {
   description?: string | null
   leaderName?: string | null
   headquarters?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   characters?: Prisma.CharacterFactionUncheckedCreateNestedManyWithoutFactionInput
@@ -1066,6 +1144,8 @@ export type FactionUpdateWithoutMediaAssetsInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   leaderName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   headquarters?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   work?: Prisma.WorkUpdateOneWithoutFactionsNestedInput
@@ -1086,6 +1166,8 @@ export type FactionUncheckedUpdateWithoutMediaAssetsInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   leaderName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   headquarters?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   characters?: Prisma.CharacterFactionUncheckedUpdateManyWithoutFactionNestedInput
@@ -1104,6 +1186,8 @@ export type FactionCreateManyWorkInput = {
   description?: string | null
   leaderName?: string | null
   headquarters?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -1119,6 +1203,8 @@ export type FactionUpdateWithoutWorkInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   leaderName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   headquarters?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   characters?: Prisma.CharacterFactionUpdateManyWithoutFactionNestedInput
@@ -1138,6 +1224,8 @@ export type FactionUncheckedUpdateWithoutWorkInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   leaderName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   headquarters?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   characters?: Prisma.CharacterFactionUncheckedUpdateManyWithoutFactionNestedInput
@@ -1157,6 +1245,8 @@ export type FactionUncheckedUpdateManyWithoutWorkInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   leaderName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   headquarters?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -1231,6 +1321,8 @@ export type FactionSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   description?: boolean
   leaderName?: boolean
   headquarters?: boolean
+  seoTitle?: boolean
+  seoDescription?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   work?: boolean | Prisma.Faction$workArgs<ExtArgs>
@@ -1253,6 +1345,8 @@ export type FactionSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exten
   description?: boolean
   leaderName?: boolean
   headquarters?: boolean
+  seoTitle?: boolean
+  seoDescription?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   work?: boolean | Prisma.Faction$workArgs<ExtArgs>
@@ -1270,6 +1364,8 @@ export type FactionSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exten
   description?: boolean
   leaderName?: boolean
   headquarters?: boolean
+  seoTitle?: boolean
+  seoDescription?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   work?: boolean | Prisma.Faction$workArgs<ExtArgs>
@@ -1287,11 +1383,13 @@ export type FactionSelectScalar = {
   description?: boolean
   leaderName?: boolean
   headquarters?: boolean
+  seoTitle?: boolean
+  seoDescription?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type FactionOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "nameVi" | "nameOriginal" | "nameEnglish" | "aliases" | "slug" | "workId" | "type" | "description" | "leaderName" | "headquarters" | "createdAt" | "updatedAt", ExtArgs["result"]["faction"]>
+export type FactionOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "nameVi" | "nameOriginal" | "nameEnglish" | "aliases" | "slug" | "workId" | "type" | "description" | "leaderName" | "headquarters" | "seoTitle" | "seoDescription" | "createdAt" | "updatedAt", ExtArgs["result"]["faction"]>
 export type FactionInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   work?: boolean | Prisma.Faction$workArgs<ExtArgs>
   characters?: boolean | Prisma.Faction$charactersArgs<ExtArgs>
@@ -1328,6 +1426,8 @@ export type $FactionPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     description: string | null
     leaderName: string | null
     headquarters: string | null
+    seoTitle: string | null
+    seoDescription: string | null
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["faction"]>
@@ -1769,6 +1869,8 @@ export interface FactionFieldRefs {
   readonly description: Prisma.FieldRef<"Faction", 'String'>
   readonly leaderName: Prisma.FieldRef<"Faction", 'String'>
   readonly headquarters: Prisma.FieldRef<"Faction", 'String'>
+  readonly seoTitle: Prisma.FieldRef<"Faction", 'String'>
+  readonly seoDescription: Prisma.FieldRef<"Faction", 'String'>
   readonly createdAt: Prisma.FieldRef<"Faction", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Faction", 'DateTime'>
 }
