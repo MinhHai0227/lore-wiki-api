@@ -20,6 +20,7 @@ import { StorageModule } from './storage/storage.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { UsersModule } from './modules/users/users.module';
 import { RolesGuard } from './common/guards/roles.guard';
+import { WorksModule } from './modules/works/works.module';
 
 @Module({
   imports: [
@@ -58,6 +59,7 @@ import { RolesGuard } from './common/guards/roles.guard';
     GenresModule,
     AuthModule,
     UsersModule,
+    WorksModule,
   ],
   controllers: [],
   providers: [
