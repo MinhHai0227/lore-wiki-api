@@ -6,10 +6,11 @@ import {
 import { ConfigService } from '@nestjs/config';
 import { JwtService } from '@nestjs/jwt';
 import type { StringValue } from 'ms';
-import { verifyPassword } from 'src/common/utils/password';
+import { hashPassword, verifyPassword } from 'src/common/utils/password';
 import { User } from 'src/generated/prisma/client';
-import { CreateUserDto } from '../users/dto/create-user.dto';
 import { UsersService } from '../users/users.service';
+import { ChangePasswordDto } from './dto/change-password.dto';
+import { RegisterDto } from './dto/register.dto';
 
 export type AuthUser = Omit<User, 'passwordHash'>;
 
@@ -55,7 +56,7 @@ export class AuthService {
     return result;
   }
 
-  async register(createUserDto: CreateUserDto): Promise<AuthTokenResponse> {
+  async register(createUserDto: RegisterDto): Promise<AuthTokenResponse> {
     const existingUser = await this.usersService.findByEmail(
       createUserDto.email,
     );
@@ -98,6 +99,33 @@ export class AuthService {
     return this.generateToken(authUser);
   }
 
+  async changePassword(userId: string, changePasswordDto: ChangePasswordDto) {
+    const user = await this.usersService.findById(userId);
+    const isCurrentPasswordValid = await verifyPassword(
+      changePasswordDto.currentPassword,
+      user?.passwordHash,
+    );
+
+    if (!user || !isCurrentPasswordValid) {
+      throw new UnauthorizedException('Mật khẩu hiện tại không đúng');
+    }
+
+    const isSamePassword = await verifyPassword(
+      changePasswordDto.newPassword,
+      user.passwordHash,
+    );
+
+    if (isSamePassword) {
+      throw new UnauthorizedException(
+        'Mật khẩu mới không được trùng mật khẩu cũ',
+      );
+    }
+
+    const passwordHash = await hashPassword(changePasswordDto.newPassword);
+
+    return this.usersService.updatePasswordHash(userId, passwordHash);
+  }
+
   private async generateToken(user: AuthUser): Promise<AuthTokenResponse> {
     const payload: AuthTokenPayload = {
       sub: user.id,
@@ -134,7 +162,7 @@ export class AuthService {
         id: user.id,
         email: user.email,
         displayName: user.displayName,
-        avatarUrl: user.avatarUrl,
+        avatarUrl: this.usersService.getAvatarPublicUrl(user.avatarUrl),
         role: user.role,
       },
     };

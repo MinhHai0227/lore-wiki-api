@@ -8,17 +8,15 @@ import {
 } from 'class-validator';
 import { UserRole } from 'src/generated/prisma/client';
 
-export class UpdateUserDto {
-  @IsOptional()
+export class CreateAdminUserDto {
   @IsEmail()
   @MaxLength(255)
-  email?: string;
+  email: string;
 
-  @IsOptional()
   @IsString()
   @MinLength(6)
   @MaxLength(72)
-  password?: string;
+  password: string;
 
   @IsOptional()
   @IsString()

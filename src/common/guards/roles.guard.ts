@@ -37,7 +37,7 @@ export class RolesGuard implements CanActivate {
       throw new UnauthorizedException('Cần đăng nhập để sử dụng dịch vụ');
     }
 
-    if (!user.role && !requiredRoles.includes(user.role)) {
+    if (!requiredRoles.includes(user.role)) {
       throw new ForbiddenException('Bạn không đủ quyền hạn');
     }
 
