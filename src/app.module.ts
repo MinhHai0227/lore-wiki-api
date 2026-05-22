@@ -22,6 +22,7 @@ import { UsersModule } from './modules/users/users.module';
 import { RolesGuard } from './common/guards/roles.guard';
 import { WorksModule } from './modules/works/works.module';
 import { CharactersModule } from './modules/characters/characters.module';
+import { CharacterRelationsModule } from './modules/character-relations/character-relations.module';
 
 @Module({
   imports: [
@@ -62,6 +63,7 @@ import { CharactersModule } from './modules/characters/characters.module';
     UsersModule,
     WorksModule,
     CharactersModule,
+    CharacterRelationsModule,
   ],
   controllers: [],
   providers: [
