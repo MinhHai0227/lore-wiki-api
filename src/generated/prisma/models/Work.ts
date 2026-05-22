@@ -71,6 +71,8 @@ export type WorkMinAggregateOutputType = {
   seasonCount: number | null
   description: string | null
   synopsis: string | null
+  seoTitle: string | null
+  seoDescription: string | null
   posterUrl: string | null
   bannerUrl: string | null
   officialUrl: string | null
@@ -108,6 +110,8 @@ export type WorkMaxAggregateOutputType = {
   seasonCount: number | null
   description: string | null
   synopsis: string | null
+  seoTitle: string | null
+  seoDescription: string | null
   posterUrl: string | null
   bannerUrl: string | null
   officialUrl: string | null
@@ -146,6 +150,8 @@ export type WorkCountAggregateOutputType = {
   seasonCount: number
   description: number
   synopsis: number
+  seoTitle: number
+  seoDescription: number
   posterUrl: number
   bannerUrl: number
   officialUrl: number
@@ -205,6 +211,8 @@ export type WorkMinAggregateInputType = {
   seasonCount?: true
   description?: true
   synopsis?: true
+  seoTitle?: true
+  seoDescription?: true
   posterUrl?: true
   bannerUrl?: true
   officialUrl?: true
@@ -242,6 +250,8 @@ export type WorkMaxAggregateInputType = {
   seasonCount?: true
   description?: true
   synopsis?: true
+  seoTitle?: true
+  seoDescription?: true
   posterUrl?: true
   bannerUrl?: true
   officialUrl?: true
@@ -280,6 +290,8 @@ export type WorkCountAggregateInputType = {
   seasonCount?: true
   description?: true
   synopsis?: true
+  seoTitle?: true
+  seoDescription?: true
   posterUrl?: true
   bannerUrl?: true
   officialUrl?: true
@@ -405,6 +417,8 @@ export type WorkGroupByOutputType = {
   seasonCount: number | null
   description: string | null
   synopsis: string | null
+  seoTitle: string | null
+  seoDescription: string | null
   posterUrl: string | null
   bannerUrl: string | null
   officialUrl: string | null
@@ -466,6 +480,8 @@ export type WorkWhereInput = {
   seasonCount?: Prisma.IntNullableFilter<"Work"> | number | null
   description?: Prisma.StringNullableFilter<"Work"> | string | null
   synopsis?: Prisma.StringNullableFilter<"Work"> | string | null
+  seoTitle?: Prisma.StringNullableFilter<"Work"> | string | null
+  seoDescription?: Prisma.StringNullableFilter<"Work"> | string | null
   posterUrl?: Prisma.StringNullableFilter<"Work"> | string | null
   bannerUrl?: Prisma.StringNullableFilter<"Work"> | string | null
   officialUrl?: Prisma.StringNullableFilter<"Work"> | string | null
@@ -514,6 +530,8 @@ export type WorkOrderByWithRelationInput = {
   seasonCount?: Prisma.SortOrderInput | Prisma.SortOrder
   description?: Prisma.SortOrderInput | Prisma.SortOrder
   synopsis?: Prisma.SortOrderInput | Prisma.SortOrder
+  seoTitle?: Prisma.SortOrderInput | Prisma.SortOrder
+  seoDescription?: Prisma.SortOrderInput | Prisma.SortOrder
   posterUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   bannerUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   officialUrl?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -565,6 +583,8 @@ export type WorkWhereUniqueInput = Prisma.AtLeast<{
   seasonCount?: Prisma.IntNullableFilter<"Work"> | number | null
   description?: Prisma.StringNullableFilter<"Work"> | string | null
   synopsis?: Prisma.StringNullableFilter<"Work"> | string | null
+  seoTitle?: Prisma.StringNullableFilter<"Work"> | string | null
+  seoDescription?: Prisma.StringNullableFilter<"Work"> | string | null
   posterUrl?: Prisma.StringNullableFilter<"Work"> | string | null
   bannerUrl?: Prisma.StringNullableFilter<"Work"> | string | null
   officialUrl?: Prisma.StringNullableFilter<"Work"> | string | null
@@ -613,6 +633,8 @@ export type WorkOrderByWithAggregationInput = {
   seasonCount?: Prisma.SortOrderInput | Prisma.SortOrder
   description?: Prisma.SortOrderInput | Prisma.SortOrder
   synopsis?: Prisma.SortOrderInput | Prisma.SortOrder
+  seoTitle?: Prisma.SortOrderInput | Prisma.SortOrder
+  seoDescription?: Prisma.SortOrderInput | Prisma.SortOrder
   posterUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   bannerUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   officialUrl?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -659,6 +681,8 @@ export type WorkScalarWhereWithAggregatesInput = {
   seasonCount?: Prisma.IntNullableWithAggregatesFilter<"Work"> | number | null
   description?: Prisma.StringNullableWithAggregatesFilter<"Work"> | string | null
   synopsis?: Prisma.StringNullableWithAggregatesFilter<"Work"> | string | null
+  seoTitle?: Prisma.StringNullableWithAggregatesFilter<"Work"> | string | null
+  seoDescription?: Prisma.StringNullableWithAggregatesFilter<"Work"> | string | null
   posterUrl?: Prisma.StringNullableWithAggregatesFilter<"Work"> | string | null
   bannerUrl?: Prisma.StringNullableWithAggregatesFilter<"Work"> | string | null
   officialUrl?: Prisma.StringNullableWithAggregatesFilter<"Work"> | string | null
@@ -697,6 +721,8 @@ export type WorkCreateInput = {
   seasonCount?: number | null
   description?: string | null
   synopsis?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   posterUrl?: string | null
   bannerUrl?: string | null
   officialUrl?: string | null
@@ -745,6 +771,8 @@ export type WorkUncheckedCreateInput = {
   seasonCount?: number | null
   description?: string | null
   synopsis?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   posterUrl?: string | null
   bannerUrl?: string | null
   officialUrl?: string | null
@@ -793,6 +821,8 @@ export type WorkUpdateInput = {
   seasonCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   synopsis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   posterUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bannerUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   officialUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -841,6 +871,8 @@ export type WorkUncheckedUpdateInput = {
   seasonCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   synopsis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   posterUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bannerUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   officialUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -889,6 +921,8 @@ export type WorkCreateManyInput = {
   seasonCount?: number | null
   description?: string | null
   synopsis?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   posterUrl?: string | null
   bannerUrl?: string | null
   officialUrl?: string | null
@@ -927,6 +961,8 @@ export type WorkUpdateManyMutationInput = {
   seasonCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   synopsis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   posterUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bannerUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   officialUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -965,6 +1001,8 @@ export type WorkUncheckedUpdateManyInput = {
   seasonCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   synopsis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   posterUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bannerUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   officialUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1011,6 +1049,8 @@ export type WorkCountOrderByAggregateInput = {
   seasonCount?: Prisma.SortOrder
   description?: Prisma.SortOrder
   synopsis?: Prisma.SortOrder
+  seoTitle?: Prisma.SortOrder
+  seoDescription?: Prisma.SortOrder
   posterUrl?: Prisma.SortOrder
   bannerUrl?: Prisma.SortOrder
   officialUrl?: Prisma.SortOrder
@@ -1058,6 +1098,8 @@ export type WorkMaxOrderByAggregateInput = {
   seasonCount?: Prisma.SortOrder
   description?: Prisma.SortOrder
   synopsis?: Prisma.SortOrder
+  seoTitle?: Prisma.SortOrder
+  seoDescription?: Prisma.SortOrder
   posterUrl?: Prisma.SortOrder
   bannerUrl?: Prisma.SortOrder
   officialUrl?: Prisma.SortOrder
@@ -1095,6 +1137,8 @@ export type WorkMinOrderByAggregateInput = {
   seasonCount?: Prisma.SortOrder
   description?: Prisma.SortOrder
   synopsis?: Prisma.SortOrder
+  seoTitle?: Prisma.SortOrder
+  seoDescription?: Prisma.SortOrder
   posterUrl?: Prisma.SortOrder
   bannerUrl?: Prisma.SortOrder
   officialUrl?: Prisma.SortOrder
@@ -1352,6 +1396,8 @@ export type WorkCreateWithoutGenresInput = {
   seasonCount?: number | null
   description?: string | null
   synopsis?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   posterUrl?: string | null
   bannerUrl?: string | null
   officialUrl?: string | null
@@ -1399,6 +1445,8 @@ export type WorkUncheckedCreateWithoutGenresInput = {
   seasonCount?: number | null
   description?: string | null
   synopsis?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   posterUrl?: string | null
   bannerUrl?: string | null
   officialUrl?: string | null
@@ -1462,6 +1510,8 @@ export type WorkUpdateWithoutGenresInput = {
   seasonCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   synopsis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   posterUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bannerUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   officialUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1509,6 +1559,8 @@ export type WorkUncheckedUpdateWithoutGenresInput = {
   seasonCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   synopsis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   posterUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bannerUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   officialUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1556,6 +1608,8 @@ export type WorkCreateWithoutCharactersInput = {
   seasonCount?: number | null
   description?: string | null
   synopsis?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   posterUrl?: string | null
   bannerUrl?: string | null
   officialUrl?: string | null
@@ -1603,6 +1657,8 @@ export type WorkUncheckedCreateWithoutCharactersInput = {
   seasonCount?: number | null
   description?: string | null
   synopsis?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   posterUrl?: string | null
   bannerUrl?: string | null
   officialUrl?: string | null
@@ -1666,6 +1722,8 @@ export type WorkUpdateWithoutCharactersInput = {
   seasonCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   synopsis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   posterUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bannerUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   officialUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1713,6 +1771,8 @@ export type WorkUncheckedUpdateWithoutCharactersInput = {
   seasonCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   synopsis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   posterUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bannerUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   officialUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1760,6 +1820,8 @@ export type WorkCreateWithoutArtifactsInput = {
   seasonCount?: number | null
   description?: string | null
   synopsis?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   posterUrl?: string | null
   bannerUrl?: string | null
   officialUrl?: string | null
@@ -1807,6 +1869,8 @@ export type WorkUncheckedCreateWithoutArtifactsInput = {
   seasonCount?: number | null
   description?: string | null
   synopsis?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   posterUrl?: string | null
   bannerUrl?: string | null
   officialUrl?: string | null
@@ -1870,6 +1934,8 @@ export type WorkUpdateWithoutArtifactsInput = {
   seasonCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   synopsis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   posterUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bannerUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   officialUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1917,6 +1983,8 @@ export type WorkUncheckedUpdateWithoutArtifactsInput = {
   seasonCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   synopsis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   posterUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bannerUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   officialUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1964,6 +2032,8 @@ export type WorkCreateWithoutSkillsInput = {
   seasonCount?: number | null
   description?: string | null
   synopsis?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   posterUrl?: string | null
   bannerUrl?: string | null
   officialUrl?: string | null
@@ -2011,6 +2081,8 @@ export type WorkUncheckedCreateWithoutSkillsInput = {
   seasonCount?: number | null
   description?: string | null
   synopsis?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   posterUrl?: string | null
   bannerUrl?: string | null
   officialUrl?: string | null
@@ -2074,6 +2146,8 @@ export type WorkUpdateWithoutSkillsInput = {
   seasonCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   synopsis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   posterUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bannerUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   officialUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2121,6 +2195,8 @@ export type WorkUncheckedUpdateWithoutSkillsInput = {
   seasonCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   synopsis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   posterUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bannerUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   officialUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2168,6 +2244,8 @@ export type WorkCreateWithoutFactionsInput = {
   seasonCount?: number | null
   description?: string | null
   synopsis?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   posterUrl?: string | null
   bannerUrl?: string | null
   officialUrl?: string | null
@@ -2215,6 +2293,8 @@ export type WorkUncheckedCreateWithoutFactionsInput = {
   seasonCount?: number | null
   description?: string | null
   synopsis?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   posterUrl?: string | null
   bannerUrl?: string | null
   officialUrl?: string | null
@@ -2278,6 +2358,8 @@ export type WorkUpdateWithoutFactionsInput = {
   seasonCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   synopsis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   posterUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bannerUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   officialUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2325,6 +2407,8 @@ export type WorkUncheckedUpdateWithoutFactionsInput = {
   seasonCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   synopsis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   posterUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bannerUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   officialUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2372,6 +2456,8 @@ export type WorkCreateWithoutTermsInput = {
   seasonCount?: number | null
   description?: string | null
   synopsis?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   posterUrl?: string | null
   bannerUrl?: string | null
   officialUrl?: string | null
@@ -2419,6 +2505,8 @@ export type WorkUncheckedCreateWithoutTermsInput = {
   seasonCount?: number | null
   description?: string | null
   synopsis?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   posterUrl?: string | null
   bannerUrl?: string | null
   officialUrl?: string | null
@@ -2482,6 +2570,8 @@ export type WorkUpdateWithoutTermsInput = {
   seasonCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   synopsis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   posterUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bannerUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   officialUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2529,6 +2619,8 @@ export type WorkUncheckedUpdateWithoutTermsInput = {
   seasonCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   synopsis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   posterUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bannerUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   officialUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2576,6 +2668,8 @@ export type WorkCreateWithoutWikiPagesInput = {
   seasonCount?: number | null
   description?: string | null
   synopsis?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   posterUrl?: string | null
   bannerUrl?: string | null
   officialUrl?: string | null
@@ -2623,6 +2717,8 @@ export type WorkUncheckedCreateWithoutWikiPagesInput = {
   seasonCount?: number | null
   description?: string | null
   synopsis?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   posterUrl?: string | null
   bannerUrl?: string | null
   officialUrl?: string | null
@@ -2686,6 +2782,8 @@ export type WorkUpdateWithoutWikiPagesInput = {
   seasonCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   synopsis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   posterUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bannerUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   officialUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2733,6 +2831,8 @@ export type WorkUncheckedUpdateWithoutWikiPagesInput = {
   seasonCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   synopsis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   posterUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bannerUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   officialUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2780,6 +2880,8 @@ export type WorkCreateWithoutTimelineEventsInput = {
   seasonCount?: number | null
   description?: string | null
   synopsis?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   posterUrl?: string | null
   bannerUrl?: string | null
   officialUrl?: string | null
@@ -2827,6 +2929,8 @@ export type WorkUncheckedCreateWithoutTimelineEventsInput = {
   seasonCount?: number | null
   description?: string | null
   synopsis?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   posterUrl?: string | null
   bannerUrl?: string | null
   officialUrl?: string | null
@@ -2890,6 +2994,8 @@ export type WorkUpdateWithoutTimelineEventsInput = {
   seasonCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   synopsis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   posterUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bannerUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   officialUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2937,6 +3043,8 @@ export type WorkUncheckedUpdateWithoutTimelineEventsInput = {
   seasonCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   synopsis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   posterUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bannerUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   officialUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2984,6 +3092,8 @@ export type WorkCreateWithoutMediaAssetsInput = {
   seasonCount?: number | null
   description?: string | null
   synopsis?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   posterUrl?: string | null
   bannerUrl?: string | null
   officialUrl?: string | null
@@ -3031,6 +3141,8 @@ export type WorkUncheckedCreateWithoutMediaAssetsInput = {
   seasonCount?: number | null
   description?: string | null
   synopsis?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   posterUrl?: string | null
   bannerUrl?: string | null
   officialUrl?: string | null
@@ -3094,6 +3206,8 @@ export type WorkUpdateWithoutMediaAssetsInput = {
   seasonCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   synopsis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   posterUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bannerUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   officialUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -3141,6 +3255,8 @@ export type WorkUncheckedUpdateWithoutMediaAssetsInput = {
   seasonCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   synopsis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   posterUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bannerUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   officialUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -3188,6 +3304,8 @@ export type WorkCreateWithoutRatingsInput = {
   seasonCount?: number | null
   description?: string | null
   synopsis?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   posterUrl?: string | null
   bannerUrl?: string | null
   officialUrl?: string | null
@@ -3235,6 +3353,8 @@ export type WorkUncheckedCreateWithoutRatingsInput = {
   seasonCount?: number | null
   description?: string | null
   synopsis?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   posterUrl?: string | null
   bannerUrl?: string | null
   officialUrl?: string | null
@@ -3298,6 +3418,8 @@ export type WorkUpdateWithoutRatingsInput = {
   seasonCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   synopsis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   posterUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bannerUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   officialUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -3345,6 +3467,8 @@ export type WorkUncheckedUpdateWithoutRatingsInput = {
   seasonCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   synopsis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   posterUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bannerUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   officialUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -3504,6 +3628,8 @@ export type WorkSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   seasonCount?: boolean
   description?: boolean
   synopsis?: boolean
+  seoTitle?: boolean
+  seoDescription?: boolean
   posterUrl?: boolean
   bannerUrl?: boolean
   officialUrl?: boolean
@@ -3553,6 +3679,8 @@ export type WorkSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   seasonCount?: boolean
   description?: boolean
   synopsis?: boolean
+  seoTitle?: boolean
+  seoDescription?: boolean
   posterUrl?: boolean
   bannerUrl?: boolean
   officialUrl?: boolean
@@ -3591,6 +3719,8 @@ export type WorkSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   seasonCount?: boolean
   description?: boolean
   synopsis?: boolean
+  seoTitle?: boolean
+  seoDescription?: boolean
   posterUrl?: boolean
   bannerUrl?: boolean
   officialUrl?: boolean
@@ -3629,6 +3759,8 @@ export type WorkSelectScalar = {
   seasonCount?: boolean
   description?: boolean
   synopsis?: boolean
+  seoTitle?: boolean
+  seoDescription?: boolean
   posterUrl?: boolean
   bannerUrl?: boolean
   officialUrl?: boolean
@@ -3641,7 +3773,7 @@ export type WorkSelectScalar = {
   updatedAt?: boolean
 }
 
-export type WorkOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "titleVi" | "titleOriginal" | "titleRomaji" | "titleEnglish" | "otherNames" | "slug" | "type" | "status" | "authorName" | "artistName" | "scriptWriter" | "country" | "originalName" | "magazine" | "publisher" | "platform" | "startDate" | "endDate" | "chapterCount" | "episodeCount" | "volumeCount" | "seasonCount" | "description" | "synopsis" | "posterUrl" | "bannerUrl" | "officialUrl" | "legalReadUrl" | "legalWatchUrl" | "avgRating" | "ratingCount" | "viewCount" | "createdAt" | "updatedAt", ExtArgs["result"]["work"]>
+export type WorkOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "titleVi" | "titleOriginal" | "titleRomaji" | "titleEnglish" | "otherNames" | "slug" | "type" | "status" | "authorName" | "artistName" | "scriptWriter" | "country" | "originalName" | "magazine" | "publisher" | "platform" | "startDate" | "endDate" | "chapterCount" | "episodeCount" | "volumeCount" | "seasonCount" | "description" | "synopsis" | "seoTitle" | "seoDescription" | "posterUrl" | "bannerUrl" | "officialUrl" | "legalReadUrl" | "legalWatchUrl" | "avgRating" | "ratingCount" | "viewCount" | "createdAt" | "updatedAt", ExtArgs["result"]["work"]>
 export type WorkInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   genres?: boolean | Prisma.Work$genresArgs<ExtArgs>
   characters?: boolean | Prisma.Work$charactersArgs<ExtArgs>
@@ -3698,6 +3830,8 @@ export type $WorkPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     seasonCount: number | null
     description: string | null
     synopsis: string | null
+    seoTitle: string | null
+    seoDescription: string | null
     posterUrl: string | null
     bannerUrl: string | null
     officialUrl: string | null
@@ -4166,6 +4300,8 @@ export interface WorkFieldRefs {
   readonly seasonCount: Prisma.FieldRef<"Work", 'Int'>
   readonly description: Prisma.FieldRef<"Work", 'String'>
   readonly synopsis: Prisma.FieldRef<"Work", 'String'>
+  readonly seoTitle: Prisma.FieldRef<"Work", 'String'>
+  readonly seoDescription: Prisma.FieldRef<"Work", 'String'>
   readonly posterUrl: Prisma.FieldRef<"Work", 'String'>
   readonly bannerUrl: Prisma.FieldRef<"Work", 'String'>
   readonly officialUrl: Prisma.FieldRef<"Work", 'String'>

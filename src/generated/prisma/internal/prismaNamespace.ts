@@ -2582,6 +2582,8 @@ export const WorkScalarFieldEnum = {
   seasonCount: 'seasonCount',
   description: 'description',
   synopsis: 'synopsis',
+  seoTitle: 'seoTitle',
+  seoDescription: 'seoDescription',
   posterUrl: 'posterUrl',
   bannerUrl: 'bannerUrl',
   officialUrl: 'officialUrl',
@@ -2635,6 +2637,8 @@ export const CharacterScalarFieldEnum = {
   appearance: 'appearance',
   personality: 'personality',
   lifeStory: 'lifeStory',
+  seoTitle: 'seoTitle',
+  seoDescription: 'seoDescription',
   avatarUrl: 'avatarUrl',
   coverUrl: 'coverUrl',
   isSpoilerHeavy: 'isSpoilerHeavy',
@@ -2690,6 +2694,8 @@ export const ArtifactScalarFieldEnum = {
   abilities: 'abilities',
   weakness: 'weakness',
   limitation: 'limitation',
+  seoTitle: 'seoTitle',
+  seoDescription: 'seoDescription',
   firstAppearance: 'firstAppearance',
   currentStatus: 'currentStatus',
   imageUrl: 'imageUrl',
@@ -2750,6 +2756,8 @@ export const SkillScalarFieldEnum = {
   description: 'description',
   effect: 'effect',
   limitation: 'limitation',
+  seoTitle: 'seoTitle',
+  seoDescription: 'seoDescription',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
@@ -2779,6 +2787,8 @@ export const FactionScalarFieldEnum = {
   description: 'description',
   leaderName: 'leaderName',
   headquarters: 'headquarters',
+  seoTitle: 'seoTitle',
+  seoDescription: 'seoDescription',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
@@ -2807,6 +2817,8 @@ export const TermScalarFieldEnum = {
   type: 'type',
   description: 'description',
   levelOrder: 'levelOrder',
+  seoTitle: 'seoTitle',
+  seoDescription: 'seoDescription',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
@@ -2834,7 +2846,6 @@ export const WikiPageScalarFieldEnum = {
   spoilerLevel: 'spoilerLevel',
   seoTitle: 'seoTitle',
   seoDescription: 'seoDescription',
-  canonicalUrl: 'canonicalUrl',
   viewCount: 'viewCount',
   publishedAt: 'publishedAt',
   createdAt: 'createdAt',

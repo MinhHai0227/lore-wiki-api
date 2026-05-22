@@ -36,6 +36,8 @@ export type SkillMinAggregateOutputType = {
   description: string | null
   effect: string | null
   limitation: string | null
+  seoTitle: string | null
+  seoDescription: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -52,6 +54,8 @@ export type SkillMaxAggregateOutputType = {
   description: string | null
   effect: string | null
   limitation: string | null
+  seoTitle: string | null
+  seoDescription: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -69,6 +73,8 @@ export type SkillCountAggregateOutputType = {
   description: number
   effect: number
   limitation: number
+  seoTitle: number
+  seoDescription: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -87,6 +93,8 @@ export type SkillMinAggregateInputType = {
   description?: true
   effect?: true
   limitation?: true
+  seoTitle?: true
+  seoDescription?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -103,6 +111,8 @@ export type SkillMaxAggregateInputType = {
   description?: true
   effect?: true
   limitation?: true
+  seoTitle?: true
+  seoDescription?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -120,6 +130,8 @@ export type SkillCountAggregateInputType = {
   description?: true
   effect?: true
   limitation?: true
+  seoTitle?: true
+  seoDescription?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -210,6 +222,8 @@ export type SkillGroupByOutputType = {
   description: string | null
   effect: string | null
   limitation: string | null
+  seoTitle: string | null
+  seoDescription: string | null
   createdAt: Date
   updatedAt: Date
   _count: SkillCountAggregateOutputType | null
@@ -248,6 +262,8 @@ export type SkillWhereInput = {
   description?: Prisma.StringNullableFilter<"Skill"> | string | null
   effect?: Prisma.StringNullableFilter<"Skill"> | string | null
   limitation?: Prisma.StringNullableFilter<"Skill"> | string | null
+  seoTitle?: Prisma.StringNullableFilter<"Skill"> | string | null
+  seoDescription?: Prisma.StringNullableFilter<"Skill"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Skill"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Skill"> | Date | string
   work?: Prisma.XOR<Prisma.WorkNullableScalarRelationFilter, Prisma.WorkWhereInput> | null
@@ -269,6 +285,8 @@ export type SkillOrderByWithRelationInput = {
   description?: Prisma.SortOrderInput | Prisma.SortOrder
   effect?: Prisma.SortOrderInput | Prisma.SortOrder
   limitation?: Prisma.SortOrderInput | Prisma.SortOrder
+  seoTitle?: Prisma.SortOrderInput | Prisma.SortOrder
+  seoDescription?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   work?: Prisma.WorkOrderByWithRelationInput
@@ -293,6 +311,8 @@ export type SkillWhereUniqueInput = Prisma.AtLeast<{
   description?: Prisma.StringNullableFilter<"Skill"> | string | null
   effect?: Prisma.StringNullableFilter<"Skill"> | string | null
   limitation?: Prisma.StringNullableFilter<"Skill"> | string | null
+  seoTitle?: Prisma.StringNullableFilter<"Skill"> | string | null
+  seoDescription?: Prisma.StringNullableFilter<"Skill"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Skill"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Skill"> | Date | string
   work?: Prisma.XOR<Prisma.WorkNullableScalarRelationFilter, Prisma.WorkWhereInput> | null
@@ -314,6 +334,8 @@ export type SkillOrderByWithAggregationInput = {
   description?: Prisma.SortOrderInput | Prisma.SortOrder
   effect?: Prisma.SortOrderInput | Prisma.SortOrder
   limitation?: Prisma.SortOrderInput | Prisma.SortOrder
+  seoTitle?: Prisma.SortOrderInput | Prisma.SortOrder
+  seoDescription?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.SkillCountOrderByAggregateInput
@@ -337,6 +359,8 @@ export type SkillScalarWhereWithAggregatesInput = {
   description?: Prisma.StringNullableWithAggregatesFilter<"Skill"> | string | null
   effect?: Prisma.StringNullableWithAggregatesFilter<"Skill"> | string | null
   limitation?: Prisma.StringNullableWithAggregatesFilter<"Skill"> | string | null
+  seoTitle?: Prisma.StringNullableWithAggregatesFilter<"Skill"> | string | null
+  seoDescription?: Prisma.StringNullableWithAggregatesFilter<"Skill"> | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Skill"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Skill"> | Date | string
 }
@@ -353,6 +377,8 @@ export type SkillCreateInput = {
   description?: string | null
   effect?: string | null
   limitation?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   work?: Prisma.WorkCreateNestedOneWithoutSkillsInput
@@ -374,6 +400,8 @@ export type SkillUncheckedCreateInput = {
   description?: string | null
   effect?: string | null
   limitation?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   characters?: Prisma.CharacterSkillUncheckedCreateNestedManyWithoutSkillInput
@@ -393,6 +421,8 @@ export type SkillUpdateInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   effect?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   limitation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   work?: Prisma.WorkUpdateOneWithoutSkillsNestedInput
@@ -414,6 +444,8 @@ export type SkillUncheckedUpdateInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   effect?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   limitation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   characters?: Prisma.CharacterSkillUncheckedUpdateManyWithoutSkillNestedInput
@@ -434,6 +466,8 @@ export type SkillCreateManyInput = {
   description?: string | null
   effect?: string | null
   limitation?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -450,6 +484,8 @@ export type SkillUpdateManyMutationInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   effect?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   limitation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -467,6 +503,8 @@ export type SkillUncheckedUpdateManyInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   effect?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   limitation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -494,6 +532,8 @@ export type SkillCountOrderByAggregateInput = {
   description?: Prisma.SortOrder
   effect?: Prisma.SortOrder
   limitation?: Prisma.SortOrder
+  seoTitle?: Prisma.SortOrder
+  seoDescription?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -510,6 +550,8 @@ export type SkillMaxOrderByAggregateInput = {
   description?: Prisma.SortOrder
   effect?: Prisma.SortOrder
   limitation?: Prisma.SortOrder
+  seoTitle?: Prisma.SortOrder
+  seoDescription?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -526,6 +568,8 @@ export type SkillMinOrderByAggregateInput = {
   description?: Prisma.SortOrder
   effect?: Prisma.SortOrder
   limitation?: Prisma.SortOrder
+  seoTitle?: Prisma.SortOrder
+  seoDescription?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -653,6 +697,8 @@ export type SkillCreateWithoutWorkInput = {
   description?: string | null
   effect?: string | null
   limitation?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   characters?: Prisma.CharacterSkillCreateNestedManyWithoutSkillInput
@@ -672,6 +718,8 @@ export type SkillUncheckedCreateWithoutWorkInput = {
   description?: string | null
   effect?: string | null
   limitation?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   characters?: Prisma.CharacterSkillUncheckedCreateNestedManyWithoutSkillInput
@@ -721,6 +769,8 @@ export type SkillScalarWhereInput = {
   description?: Prisma.StringNullableFilter<"Skill"> | string | null
   effect?: Prisma.StringNullableFilter<"Skill"> | string | null
   limitation?: Prisma.StringNullableFilter<"Skill"> | string | null
+  seoTitle?: Prisma.StringNullableFilter<"Skill"> | string | null
+  seoDescription?: Prisma.StringNullableFilter<"Skill"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Skill"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Skill"> | Date | string
 }
@@ -737,6 +787,8 @@ export type SkillCreateWithoutCharactersInput = {
   description?: string | null
   effect?: string | null
   limitation?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   work?: Prisma.WorkCreateNestedOneWithoutSkillsInput
@@ -757,6 +809,8 @@ export type SkillUncheckedCreateWithoutCharactersInput = {
   description?: string | null
   effect?: string | null
   limitation?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   wikiPages?: Prisma.WikiPageUncheckedCreateNestedManyWithoutSkillInput
@@ -791,6 +845,8 @@ export type SkillUpdateWithoutCharactersInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   effect?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   limitation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   work?: Prisma.WorkUpdateOneWithoutSkillsNestedInput
@@ -811,6 +867,8 @@ export type SkillUncheckedUpdateWithoutCharactersInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   effect?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   limitation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   wikiPages?: Prisma.WikiPageUncheckedUpdateManyWithoutSkillNestedInput
@@ -829,6 +887,8 @@ export type SkillCreateWithoutWikiPagesInput = {
   description?: string | null
   effect?: string | null
   limitation?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   work?: Prisma.WorkCreateNestedOneWithoutSkillsInput
@@ -849,6 +909,8 @@ export type SkillUncheckedCreateWithoutWikiPagesInput = {
   description?: string | null
   effect?: string | null
   limitation?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   characters?: Prisma.CharacterSkillUncheckedCreateNestedManyWithoutSkillInput
@@ -883,6 +945,8 @@ export type SkillUpdateWithoutWikiPagesInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   effect?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   limitation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   work?: Prisma.WorkUpdateOneWithoutSkillsNestedInput
@@ -903,6 +967,8 @@ export type SkillUncheckedUpdateWithoutWikiPagesInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   effect?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   limitation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   characters?: Prisma.CharacterSkillUncheckedUpdateManyWithoutSkillNestedInput
@@ -921,6 +987,8 @@ export type SkillCreateWithoutMediaAssetsInput = {
   description?: string | null
   effect?: string | null
   limitation?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   work?: Prisma.WorkCreateNestedOneWithoutSkillsInput
@@ -941,6 +1009,8 @@ export type SkillUncheckedCreateWithoutMediaAssetsInput = {
   description?: string | null
   effect?: string | null
   limitation?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   characters?: Prisma.CharacterSkillUncheckedCreateNestedManyWithoutSkillInput
@@ -975,6 +1045,8 @@ export type SkillUpdateWithoutMediaAssetsInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   effect?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   limitation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   work?: Prisma.WorkUpdateOneWithoutSkillsNestedInput
@@ -995,6 +1067,8 @@ export type SkillUncheckedUpdateWithoutMediaAssetsInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   effect?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   limitation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   characters?: Prisma.CharacterSkillUncheckedUpdateManyWithoutSkillNestedInput
@@ -1013,6 +1087,8 @@ export type SkillCreateManyWorkInput = {
   description?: string | null
   effect?: string | null
   limitation?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -1029,6 +1105,8 @@ export type SkillUpdateWithoutWorkInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   effect?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   limitation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   characters?: Prisma.CharacterSkillUpdateManyWithoutSkillNestedInput
@@ -1048,6 +1126,8 @@ export type SkillUncheckedUpdateWithoutWorkInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   effect?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   limitation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   characters?: Prisma.CharacterSkillUncheckedUpdateManyWithoutSkillNestedInput
@@ -1067,6 +1147,8 @@ export type SkillUncheckedUpdateManyWithoutWorkInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   effect?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   limitation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -1133,6 +1215,8 @@ export type SkillSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   description?: boolean
   effect?: boolean
   limitation?: boolean
+  seoTitle?: boolean
+  seoDescription?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   work?: boolean | Prisma.Skill$workArgs<ExtArgs>
@@ -1155,6 +1239,8 @@ export type SkillSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   description?: boolean
   effect?: boolean
   limitation?: boolean
+  seoTitle?: boolean
+  seoDescription?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   work?: boolean | Prisma.Skill$workArgs<ExtArgs>
@@ -1173,6 +1259,8 @@ export type SkillSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   description?: boolean
   effect?: boolean
   limitation?: boolean
+  seoTitle?: boolean
+  seoDescription?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   work?: boolean | Prisma.Skill$workArgs<ExtArgs>
@@ -1191,11 +1279,13 @@ export type SkillSelectScalar = {
   description?: boolean
   effect?: boolean
   limitation?: boolean
+  seoTitle?: boolean
+  seoDescription?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type SkillOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "nameVi" | "nameOriginal" | "nameEnglish" | "aliases" | "slug" | "workId" | "type" | "rank" | "description" | "effect" | "limitation" | "createdAt" | "updatedAt", ExtArgs["result"]["skill"]>
+export type SkillOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "nameVi" | "nameOriginal" | "nameEnglish" | "aliases" | "slug" | "workId" | "type" | "rank" | "description" | "effect" | "limitation" | "seoTitle" | "seoDescription" | "createdAt" | "updatedAt", ExtArgs["result"]["skill"]>
 export type SkillInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   work?: boolean | Prisma.Skill$workArgs<ExtArgs>
   characters?: boolean | Prisma.Skill$charactersArgs<ExtArgs>
@@ -1231,6 +1321,8 @@ export type $SkillPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
     description: string | null
     effect: string | null
     limitation: string | null
+    seoTitle: string | null
+    seoDescription: string | null
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["skill"]>
@@ -1672,6 +1764,8 @@ export interface SkillFieldRefs {
   readonly description: Prisma.FieldRef<"Skill", 'String'>
   readonly effect: Prisma.FieldRef<"Skill", 'String'>
   readonly limitation: Prisma.FieldRef<"Skill", 'String'>
+  readonly seoTitle: Prisma.FieldRef<"Skill", 'String'>
+  readonly seoDescription: Prisma.FieldRef<"Skill", 'String'>
   readonly createdAt: Prisma.FieldRef<"Skill", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Skill", 'DateTime'>
 }

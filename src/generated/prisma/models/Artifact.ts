@@ -52,6 +52,8 @@ export type ArtifactMinAggregateOutputType = {
   abilities: string | null
   weakness: string | null
   limitation: string | null
+  seoTitle: string | null
+  seoDescription: string | null
   firstAppearance: string | null
   currentStatus: string | null
   imageUrl: string | null
@@ -80,6 +82,8 @@ export type ArtifactMaxAggregateOutputType = {
   abilities: string | null
   weakness: string | null
   limitation: string | null
+  seoTitle: string | null
+  seoDescription: string | null
   firstAppearance: string | null
   currentStatus: string | null
   imageUrl: string | null
@@ -109,6 +113,8 @@ export type ArtifactCountAggregateOutputType = {
   abilities: number
   weakness: number
   limitation: number
+  seoTitle: number
+  seoDescription: number
   firstAppearance: number
   currentStatus: number
   imageUrl: number
@@ -147,6 +153,8 @@ export type ArtifactMinAggregateInputType = {
   abilities?: true
   weakness?: true
   limitation?: true
+  seoTitle?: true
+  seoDescription?: true
   firstAppearance?: true
   currentStatus?: true
   imageUrl?: true
@@ -175,6 +183,8 @@ export type ArtifactMaxAggregateInputType = {
   abilities?: true
   weakness?: true
   limitation?: true
+  seoTitle?: true
+  seoDescription?: true
   firstAppearance?: true
   currentStatus?: true
   imageUrl?: true
@@ -204,6 +214,8 @@ export type ArtifactCountAggregateInputType = {
   abilities?: true
   weakness?: true
   limitation?: true
+  seoTitle?: true
+  seoDescription?: true
   firstAppearance?: true
   currentStatus?: true
   imageUrl?: true
@@ -320,6 +332,8 @@ export type ArtifactGroupByOutputType = {
   abilities: string | null
   weakness: string | null
   limitation: string | null
+  seoTitle: string | null
+  seoDescription: string | null
   firstAppearance: string | null
   currentStatus: string | null
   imageUrl: string | null
@@ -372,6 +386,8 @@ export type ArtifactWhereInput = {
   abilities?: Prisma.StringNullableFilter<"Artifact"> | string | null
   weakness?: Prisma.StringNullableFilter<"Artifact"> | string | null
   limitation?: Prisma.StringNullableFilter<"Artifact"> | string | null
+  seoTitle?: Prisma.StringNullableFilter<"Artifact"> | string | null
+  seoDescription?: Prisma.StringNullableFilter<"Artifact"> | string | null
   firstAppearance?: Prisma.StringNullableFilter<"Artifact"> | string | null
   currentStatus?: Prisma.StringNullableFilter<"Artifact"> | string | null
   imageUrl?: Prisma.StringNullableFilter<"Artifact"> | string | null
@@ -407,6 +423,8 @@ export type ArtifactOrderByWithRelationInput = {
   abilities?: Prisma.SortOrderInput | Prisma.SortOrder
   weakness?: Prisma.SortOrderInput | Prisma.SortOrder
   limitation?: Prisma.SortOrderInput | Prisma.SortOrder
+  seoTitle?: Prisma.SortOrderInput | Prisma.SortOrder
+  seoDescription?: Prisma.SortOrderInput | Prisma.SortOrder
   firstAppearance?: Prisma.SortOrderInput | Prisma.SortOrder
   currentStatus?: Prisma.SortOrderInput | Prisma.SortOrder
   imageUrl?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -445,6 +463,8 @@ export type ArtifactWhereUniqueInput = Prisma.AtLeast<{
   abilities?: Prisma.StringNullableFilter<"Artifact"> | string | null
   weakness?: Prisma.StringNullableFilter<"Artifact"> | string | null
   limitation?: Prisma.StringNullableFilter<"Artifact"> | string | null
+  seoTitle?: Prisma.StringNullableFilter<"Artifact"> | string | null
+  seoDescription?: Prisma.StringNullableFilter<"Artifact"> | string | null
   firstAppearance?: Prisma.StringNullableFilter<"Artifact"> | string | null
   currentStatus?: Prisma.StringNullableFilter<"Artifact"> | string | null
   imageUrl?: Prisma.StringNullableFilter<"Artifact"> | string | null
@@ -480,6 +500,8 @@ export type ArtifactOrderByWithAggregationInput = {
   abilities?: Prisma.SortOrderInput | Prisma.SortOrder
   weakness?: Prisma.SortOrderInput | Prisma.SortOrder
   limitation?: Prisma.SortOrderInput | Prisma.SortOrder
+  seoTitle?: Prisma.SortOrderInput | Prisma.SortOrder
+  seoDescription?: Prisma.SortOrderInput | Prisma.SortOrder
   firstAppearance?: Prisma.SortOrderInput | Prisma.SortOrder
   currentStatus?: Prisma.SortOrderInput | Prisma.SortOrder
   imageUrl?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -517,6 +539,8 @@ export type ArtifactScalarWhereWithAggregatesInput = {
   abilities?: Prisma.StringNullableWithAggregatesFilter<"Artifact"> | string | null
   weakness?: Prisma.StringNullableWithAggregatesFilter<"Artifact"> | string | null
   limitation?: Prisma.StringNullableWithAggregatesFilter<"Artifact"> | string | null
+  seoTitle?: Prisma.StringNullableWithAggregatesFilter<"Artifact"> | string | null
+  seoDescription?: Prisma.StringNullableWithAggregatesFilter<"Artifact"> | string | null
   firstAppearance?: Prisma.StringNullableWithAggregatesFilter<"Artifact"> | string | null
   currentStatus?: Prisma.StringNullableWithAggregatesFilter<"Artifact"> | string | null
   imageUrl?: Prisma.StringNullableWithAggregatesFilter<"Artifact"> | string | null
@@ -545,6 +569,8 @@ export type ArtifactCreateInput = {
   abilities?: string | null
   weakness?: string | null
   limitation?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   firstAppearance?: string | null
   currentStatus?: string | null
   imageUrl?: string | null
@@ -580,6 +606,8 @@ export type ArtifactUncheckedCreateInput = {
   abilities?: string | null
   weakness?: string | null
   limitation?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   firstAppearance?: string | null
   currentStatus?: string | null
   imageUrl?: string | null
@@ -613,6 +641,8 @@ export type ArtifactUpdateInput = {
   abilities?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   weakness?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   limitation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   firstAppearance?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   currentStatus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -648,6 +678,8 @@ export type ArtifactUncheckedUpdateInput = {
   abilities?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   weakness?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   limitation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   firstAppearance?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   currentStatus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -682,6 +714,8 @@ export type ArtifactCreateManyInput = {
   abilities?: string | null
   weakness?: string | null
   limitation?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   firstAppearance?: string | null
   currentStatus?: string | null
   imageUrl?: string | null
@@ -710,6 +744,8 @@ export type ArtifactUpdateManyMutationInput = {
   abilities?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   weakness?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   limitation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   firstAppearance?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   currentStatus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -739,6 +775,8 @@ export type ArtifactUncheckedUpdateManyInput = {
   abilities?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   weakness?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   limitation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   firstAppearance?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   currentStatus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -778,6 +816,8 @@ export type ArtifactCountOrderByAggregateInput = {
   abilities?: Prisma.SortOrder
   weakness?: Prisma.SortOrder
   limitation?: Prisma.SortOrder
+  seoTitle?: Prisma.SortOrder
+  seoDescription?: Prisma.SortOrder
   firstAppearance?: Prisma.SortOrder
   currentStatus?: Prisma.SortOrder
   imageUrl?: Prisma.SortOrder
@@ -810,6 +850,8 @@ export type ArtifactMaxOrderByAggregateInput = {
   abilities?: Prisma.SortOrder
   weakness?: Prisma.SortOrder
   limitation?: Prisma.SortOrder
+  seoTitle?: Prisma.SortOrder
+  seoDescription?: Prisma.SortOrder
   firstAppearance?: Prisma.SortOrder
   currentStatus?: Prisma.SortOrder
   imageUrl?: Prisma.SortOrder
@@ -838,6 +880,8 @@ export type ArtifactMinOrderByAggregateInput = {
   abilities?: Prisma.SortOrder
   weakness?: Prisma.SortOrder
   limitation?: Prisma.SortOrder
+  seoTitle?: Prisma.SortOrder
+  seoDescription?: Prisma.SortOrder
   firstAppearance?: Prisma.SortOrder
   currentStatus?: Prisma.SortOrder
   imageUrl?: Prisma.SortOrder
@@ -1011,6 +1055,8 @@ export type ArtifactCreateWithoutWorkInput = {
   abilities?: string | null
   weakness?: string | null
   limitation?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   firstAppearance?: string | null
   currentStatus?: string | null
   imageUrl?: string | null
@@ -1044,6 +1090,8 @@ export type ArtifactUncheckedCreateWithoutWorkInput = {
   abilities?: string | null
   weakness?: string | null
   limitation?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   firstAppearance?: string | null
   currentStatus?: string | null
   imageUrl?: string | null
@@ -1107,6 +1155,8 @@ export type ArtifactScalarWhereInput = {
   abilities?: Prisma.StringNullableFilter<"Artifact"> | string | null
   weakness?: Prisma.StringNullableFilter<"Artifact"> | string | null
   limitation?: Prisma.StringNullableFilter<"Artifact"> | string | null
+  seoTitle?: Prisma.StringNullableFilter<"Artifact"> | string | null
+  seoDescription?: Prisma.StringNullableFilter<"Artifact"> | string | null
   firstAppearance?: Prisma.StringNullableFilter<"Artifact"> | string | null
   currentStatus?: Prisma.StringNullableFilter<"Artifact"> | string | null
   imageUrl?: Prisma.StringNullableFilter<"Artifact"> | string | null
@@ -1135,6 +1185,8 @@ export type ArtifactCreateWithoutFunctionsInput = {
   abilities?: string | null
   weakness?: string | null
   limitation?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   firstAppearance?: string | null
   currentStatus?: string | null
   imageUrl?: string | null
@@ -1169,6 +1221,8 @@ export type ArtifactUncheckedCreateWithoutFunctionsInput = {
   abilities?: string | null
   weakness?: string | null
   limitation?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   firstAppearance?: string | null
   currentStatus?: string | null
   imageUrl?: string | null
@@ -1217,6 +1271,8 @@ export type ArtifactUpdateWithoutFunctionsInput = {
   abilities?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   weakness?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   limitation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   firstAppearance?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   currentStatus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1251,6 +1307,8 @@ export type ArtifactUncheckedUpdateWithoutFunctionsInput = {
   abilities?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   weakness?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   limitation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   firstAppearance?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   currentStatus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1283,6 +1341,8 @@ export type ArtifactCreateWithoutOwnersInput = {
   abilities?: string | null
   weakness?: string | null
   limitation?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   firstAppearance?: string | null
   currentStatus?: string | null
   imageUrl?: string | null
@@ -1317,6 +1377,8 @@ export type ArtifactUncheckedCreateWithoutOwnersInput = {
   abilities?: string | null
   weakness?: string | null
   limitation?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   firstAppearance?: string | null
   currentStatus?: string | null
   imageUrl?: string | null
@@ -1365,6 +1427,8 @@ export type ArtifactUpdateWithoutOwnersInput = {
   abilities?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   weakness?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   limitation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   firstAppearance?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   currentStatus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1399,6 +1463,8 @@ export type ArtifactUncheckedUpdateWithoutOwnersInput = {
   abilities?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   weakness?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   limitation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   firstAppearance?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   currentStatus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1431,6 +1497,8 @@ export type ArtifactCreateWithoutWikiPagesInput = {
   abilities?: string | null
   weakness?: string | null
   limitation?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   firstAppearance?: string | null
   currentStatus?: string | null
   imageUrl?: string | null
@@ -1465,6 +1533,8 @@ export type ArtifactUncheckedCreateWithoutWikiPagesInput = {
   abilities?: string | null
   weakness?: string | null
   limitation?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   firstAppearance?: string | null
   currentStatus?: string | null
   imageUrl?: string | null
@@ -1513,6 +1583,8 @@ export type ArtifactUpdateWithoutWikiPagesInput = {
   abilities?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   weakness?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   limitation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   firstAppearance?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   currentStatus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1547,6 +1619,8 @@ export type ArtifactUncheckedUpdateWithoutWikiPagesInput = {
   abilities?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   weakness?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   limitation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   firstAppearance?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   currentStatus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1579,6 +1653,8 @@ export type ArtifactCreateWithoutTimelineEventsInput = {
   abilities?: string | null
   weakness?: string | null
   limitation?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   firstAppearance?: string | null
   currentStatus?: string | null
   imageUrl?: string | null
@@ -1613,6 +1689,8 @@ export type ArtifactUncheckedCreateWithoutTimelineEventsInput = {
   abilities?: string | null
   weakness?: string | null
   limitation?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   firstAppearance?: string | null
   currentStatus?: string | null
   imageUrl?: string | null
@@ -1661,6 +1739,8 @@ export type ArtifactUpdateWithoutTimelineEventsInput = {
   abilities?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   weakness?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   limitation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   firstAppearance?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   currentStatus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1695,6 +1775,8 @@ export type ArtifactUncheckedUpdateWithoutTimelineEventsInput = {
   abilities?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   weakness?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   limitation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   firstAppearance?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   currentStatus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1727,6 +1809,8 @@ export type ArtifactCreateWithoutMediaAssetsInput = {
   abilities?: string | null
   weakness?: string | null
   limitation?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   firstAppearance?: string | null
   currentStatus?: string | null
   imageUrl?: string | null
@@ -1761,6 +1845,8 @@ export type ArtifactUncheckedCreateWithoutMediaAssetsInput = {
   abilities?: string | null
   weakness?: string | null
   limitation?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   firstAppearance?: string | null
   currentStatus?: string | null
   imageUrl?: string | null
@@ -1809,6 +1895,8 @@ export type ArtifactUpdateWithoutMediaAssetsInput = {
   abilities?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   weakness?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   limitation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   firstAppearance?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   currentStatus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1843,6 +1931,8 @@ export type ArtifactUncheckedUpdateWithoutMediaAssetsInput = {
   abilities?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   weakness?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   limitation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   firstAppearance?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   currentStatus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1875,6 +1965,8 @@ export type ArtifactCreateManyWorkInput = {
   abilities?: string | null
   weakness?: string | null
   limitation?: string | null
+  seoTitle?: string | null
+  seoDescription?: string | null
   firstAppearance?: string | null
   currentStatus?: string | null
   imageUrl?: string | null
@@ -1903,6 +1995,8 @@ export type ArtifactUpdateWithoutWorkInput = {
   abilities?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   weakness?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   limitation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   firstAppearance?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   currentStatus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1936,6 +2030,8 @@ export type ArtifactUncheckedUpdateWithoutWorkInput = {
   abilities?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   weakness?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   limitation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   firstAppearance?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   currentStatus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1969,6 +2065,8 @@ export type ArtifactUncheckedUpdateManyWithoutWorkInput = {
   abilities?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   weakness?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   limitation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   firstAppearance?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   currentStatus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2065,6 +2163,8 @@ export type ArtifactSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs
   abilities?: boolean
   weakness?: boolean
   limitation?: boolean
+  seoTitle?: boolean
+  seoDescription?: boolean
   firstAppearance?: boolean
   currentStatus?: boolean
   imageUrl?: boolean
@@ -2101,6 +2201,8 @@ export type ArtifactSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exte
   abilities?: boolean
   weakness?: boolean
   limitation?: boolean
+  seoTitle?: boolean
+  seoDescription?: boolean
   firstAppearance?: boolean
   currentStatus?: boolean
   imageUrl?: boolean
@@ -2131,6 +2233,8 @@ export type ArtifactSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exte
   abilities?: boolean
   weakness?: boolean
   limitation?: boolean
+  seoTitle?: boolean
+  seoDescription?: boolean
   firstAppearance?: boolean
   currentStatus?: boolean
   imageUrl?: boolean
@@ -2161,6 +2265,8 @@ export type ArtifactSelectScalar = {
   abilities?: boolean
   weakness?: boolean
   limitation?: boolean
+  seoTitle?: boolean
+  seoDescription?: boolean
   firstAppearance?: boolean
   currentStatus?: boolean
   imageUrl?: boolean
@@ -2171,7 +2277,7 @@ export type ArtifactSelectScalar = {
   updatedAt?: boolean
 }
 
-export type ArtifactOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "nameVi" | "nameOriginal" | "nameRomaji" | "nameEnglish" | "aliases" | "slug" | "workId" | "type" | "rank" | "origin" | "trueNature" | "ownerCondition" | "description" | "appearance" | "abilities" | "weakness" | "limitation" | "firstAppearance" | "currentStatus" | "imageUrl" | "coverUrl" | "isSpoilerHeavy" | "viewCount" | "createdAt" | "updatedAt", ExtArgs["result"]["artifact"]>
+export type ArtifactOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "nameVi" | "nameOriginal" | "nameRomaji" | "nameEnglish" | "aliases" | "slug" | "workId" | "type" | "rank" | "origin" | "trueNature" | "ownerCondition" | "description" | "appearance" | "abilities" | "weakness" | "limitation" | "seoTitle" | "seoDescription" | "firstAppearance" | "currentStatus" | "imageUrl" | "coverUrl" | "isSpoilerHeavy" | "viewCount" | "createdAt" | "updatedAt", ExtArgs["result"]["artifact"]>
 export type ArtifactInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   work?: boolean | Prisma.Artifact$workArgs<ExtArgs>
   functions?: boolean | Prisma.Artifact$functionsArgs<ExtArgs>
@@ -2217,6 +2323,8 @@ export type $ArtifactPayload<ExtArgs extends runtime.Types.Extensions.InternalAr
     abilities: string | null
     weakness: string | null
     limitation: string | null
+    seoTitle: string | null
+    seoDescription: string | null
     firstAppearance: string | null
     currentStatus: string | null
     imageUrl: string | null
@@ -2672,6 +2780,8 @@ export interface ArtifactFieldRefs {
   readonly abilities: Prisma.FieldRef<"Artifact", 'String'>
   readonly weakness: Prisma.FieldRef<"Artifact", 'String'>
   readonly limitation: Prisma.FieldRef<"Artifact", 'String'>
+  readonly seoTitle: Prisma.FieldRef<"Artifact", 'String'>
+  readonly seoDescription: Prisma.FieldRef<"Artifact", 'String'>
   readonly firstAppearance: Prisma.FieldRef<"Artifact", 'String'>
   readonly currentStatus: Prisma.FieldRef<"Artifact", 'String'>
   readonly imageUrl: Prisma.FieldRef<"Artifact", 'String'>

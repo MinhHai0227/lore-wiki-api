@@ -20,6 +20,9 @@ import { StorageModule } from './storage/storage.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { UsersModule } from './modules/users/users.module';
 import { RolesGuard } from './common/guards/roles.guard';
+import { WorksModule } from './modules/works/works.module';
+import { CharactersModule } from './modules/characters/characters.module';
+import { CharacterRelationsModule } from './modules/character-relations/character-relations.module';
 
 @Module({
   imports: [
@@ -58,6 +61,9 @@ import { RolesGuard } from './common/guards/roles.guard';
     GenresModule,
     AuthModule,
     UsersModule,
+    WorksModule,
+    CharactersModule,
+    CharacterRelationsModule,
   ],
   controllers: [],
   providers: [
